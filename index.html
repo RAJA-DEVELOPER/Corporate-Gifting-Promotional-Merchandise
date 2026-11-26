@@ -1,0 +1,1159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="icon" type="image/svg+xml" href="assets/favicon.svg" />
+  <title>GiftCraft – Premium Corporate Gifting Solutions in Dubai & UAE</title>
+  <meta name="description" content="GiftCraft delivers premium branded merchandise, luxury gift sets and bespoke corporate gifting solutions that strengthen partnerships and celebrate milestones across the UAE and beyond." />
+  <meta property="og:title" content="GiftCraft – Premium Corporate Gifting Solutions" />
+  <meta property="og:description" content="Transform business relationships into lasting impressions with GiftCraft's premium corporate gifting solutions." />
+  <meta property="og:type" content="website" />
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700;800&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+
+  <!-- Bootstrap 5.3 -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" />
+  <!-- Bootstrap Icons -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" />
+  <!-- AOS -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" />
+
+  <!-- Shared CSS -->
+  <link rel="stylesheet" href="assets/css/style.css" />
+
+  <style>
+    /* =============================================
+       CSS VARIABLES
+    ============================================= */
+    :root {
+      --midnight-navy: #0D1B2A;
+      --royal-blue: #1B4FBF;
+      --warm-gold: #C9922A;
+      --ivory: #FAF8F3;
+      --light-grey: #F1F3F7;
+      --white: #ffffff;
+      --text-dark: #0D1B2A;
+      --text-muted: #5F6B7A;
+      --font-heading: 'Manrope', sans-serif;
+      --font-body: 'Plus Jakarta Sans', sans-serif;
+      --transition: all 0.3s ease;
+      --shadow-sm: 0 2px 10px rgba(0,0,0,0.08);
+      --shadow-md: 0 8px 30px rgba(0,0,0,0.12);
+      --shadow-lg: 0 20px 60px rgba(0,0,0,0.18);
+    }
+
+    /* Dark mode */
+    [data-theme="dark"] {
+      --ivory: #1a2535;
+      --light-grey: #1e2d40;
+      --white: #162236;
+      --text-dark: #f1f3f7;
+      --text-muted: #94A3B8;
+    }
+
+    /* =============================================
+       GLOBAL
+    ============================================= */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: var(--font-body);
+      color: var(--text-dark);
+      background: var(--white);
+      line-height: 1.7;
+      overflow-x: hidden;
+    }
+    h1,h2,h3,h4,h5,h6 { font-family: var(--font-heading); font-weight: 700; }
+    img { max-width: 100%; }
+    a { text-decoration: none; color: inherit; }
+    section { overflow: hidden; }
+
+    .gradient-text {
+      background: linear-gradient(135deg, var(--warm-gold), #e8b96a);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    .section-label {
+      display: inline-block;
+      font-family: var(--font-heading);
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.18em;
+      color: var(--gold-text);
+      text-transform: uppercase;
+      margin-bottom: 1rem;
+    }
+    .section-label::before {
+      content: '';
+      display: inline-block;
+      width: 28px; height: 2px;
+      background: var(--warm-gold);
+      vertical-align: middle;
+      margin-right: 8px;
+    }
+
+    /* Buttons */
+    .btn-gold-custom {
+      background: linear-gradient(135deg, var(--warm-gold), #d4a44a);
+      color: #0D1B2A;
+      font-family: var(--font-heading);
+      font-weight: 700;
+      font-size: 0.9rem;
+      padding: 0.7rem 1.8rem;
+      border-radius: 50px;
+      border: none;
+      transition: var(--transition);
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      box-shadow: 0 4px 20px rgba(201,146,42,0.35);
+    }
+    .btn-gold-custom:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 30px rgba(201,146,42,0.5);
+      color: #0D1B2A;
+    }
+    .btn-gold-custom.small { padding: 0.45rem 1.1rem; font-size: 0.82rem; }
+    .btn-outline-white {
+      background: transparent;
+      color: #fff;
+      border: 2px solid rgba(255,255,255,0.7);
+      font-family: var(--font-heading);
+      font-weight: 600;
+      font-size: 0.9rem;
+      padding: 0.68rem 1.8rem;
+      border-radius: 50px;
+      transition: var(--transition);
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .btn-outline-white:hover {
+      background: rgba(255,255,255,0.15);
+      border-color: #fff;
+      color: #fff;
+      transform: translateY(-2px);
+    }
+    .btn-primary-custom {
+      background: linear-gradient(135deg, var(--royal-blue), #2560d4);
+      color: #fff;
+      font-family: var(--font-heading);
+      font-weight: 700;
+      font-size: 0.95rem;
+      padding: 0.78rem 2rem;
+      border-radius: 50px;
+      border: none;
+      transition: var(--transition);
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .btn-primary-custom:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 25px rgba(27,79,191,0.4);
+      color: #fff;
+    }
+
+    /* =============================================
+       HERO
+    ============================================= */
+    .hero-section {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .hero-overlay {
+      position: absolute;
+      inset: 0;
+      background: var(--hero-overlay);
+      z-index: 1;
+    }
+    .hero-section .container { position: relative; z-index: 2; padding-top: 100px; padding-bottom: 60px; }
+    .hero-eyebrow {
+      display: inline-block;
+      font-family: var(--font-heading);
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.22em;
+      color: var(--warm-gold);
+      text-transform: uppercase;
+      background: rgba(201,146,42,0.12);
+      border: 1px solid rgba(201,146,42,0.35);
+      padding: 0.35rem 1rem;
+      border-radius: 50px;
+      margin-bottom: 1.4rem;
+    }
+    .hero-title {
+      font-size: clamp(2.2rem, 5vw, 3.8rem);
+      font-weight: 800;
+      color: #fff;
+      line-height: 1.18;
+      margin-bottom: 1.4rem;
+      letter-spacing: -0.02em;
+    }
+    .hero-subtitle {
+      font-size: 1.08rem;
+      color: rgba(255,255,255,0.78);
+      max-width: 560px;
+      margin-bottom: 2.2rem;
+      line-height: 1.8;
+    }
+    .hero-buttons { display: flex; flex-wrap: wrap; gap: 1rem; margin-bottom: 2.5rem; }
+    .hero-stats { display: flex; flex-wrap: wrap; gap: 1rem; }
+    .stat-chip {
+      background: rgba(255,255,255,0.1);
+      border: 1px solid rgba(255,255,255,0.2);
+      backdrop-filter: blur(8px);
+      border-radius: 50px;
+      padding: 0.45rem 1.1rem;
+      color: #fff;
+      font-size: 0.84rem;
+      font-weight: 600;
+      font-family: var(--font-heading);
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .stat-chip::before {
+      content: '\f589';
+      font-family: 'bootstrap-icons';
+      color: var(--warm-gold);
+      font-size: 0.65rem;
+    }
+    .hero-image-wrap {
+      position: relative;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    .hero-mockup-img {
+      width: 90%;
+      max-width: 440px;
+      border-radius: 24px;
+      box-shadow: 0 30px 80px rgba(0,0,0,0.5);
+      position: relative;
+      z-index: 2;
+      object-fit: cover;
+      aspect-ratio: 4/5;
+    }
+    .hero-gold-ring {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      border: 2px solid rgba(201,146,42,0.35);
+      border-radius: 30px;
+      animation: ringPulse 3s ease-in-out infinite;
+      z-index: 1;
+    }
+    .hero-gold-ring2 {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      border: 1px solid rgba(201,146,42,0.18);
+      border-radius: 36px;
+      animation: ringPulse 3s ease-in-out infinite 1s;
+    }
+    @keyframes ringPulse {
+      0%,100% { transform: scale(1); opacity: 0.6; }
+      50% { transform: scale(1.03); opacity: 1; }
+    }
+    .scroll-indicator {
+      position: absolute;
+      bottom: 2.5rem;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 2;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 6px;
+      color: rgba(255,255,255,0.6);
+      font-size: 0.75rem;
+      font-family: var(--font-heading);
+      letter-spacing: 0.1em;
+    }
+    .scroll-indicator .arrow {
+      width: 24px; height: 36px;
+      border: 2px solid rgba(255,255,255,0.4);
+      border-radius: 12px;
+      position: relative;
+      display: flex;
+      justify-content: center;
+      padding-top: 6px;
+    }
+    .scroll-indicator .arrow::after {
+      content: '';
+      width: 4px; height: 8px;
+      background: var(--warm-gold);
+      border-radius: 2px;
+      animation: scrollBounce 1.6s ease infinite;
+    }
+    @keyframes scrollBounce {
+      0%,100% { transform: translateY(0); opacity: 1; }
+      50% { transform: translateY(8px); opacity: 0.3; }
+    }
+
+    /* =============================================
+       SECTION 2 – COLLECTIONS
+    ============================================= */
+    .section-collections { background: var(--ivory); padding: 6rem 0; }
+    .section-collections h2 {
+      font-size: clamp(1.8rem, 3.5vw, 2.7rem);
+      color: var(--midnight-navy);
+      margin-bottom: 0.5rem;
+    }
+    .section-collections h2 span { color: var(--royal-text); }
+    .collection-showcase {
+      position: relative;
+      border-radius: 20px;
+      overflow: hidden;
+      cursor: pointer;
+    }
+    .collection-showcase img {
+      width: 100%;
+      object-fit: cover;
+      transition: transform 0.5s ease;
+    }
+    .collection-showcase.large img { height: 580px; }
+    .collection-showcase.small img { height: 275px; }
+    .collection-showcase:hover img { transform: scale(1.06); }
+    .collection-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to top, rgba(13,27,42,0.92) 0%, rgba(13,27,42,0.3) 60%, transparent 100%);
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      padding: 2rem;
+      transition: var(--transition);
+    }
+    .collection-overlay h3 {
+      color: #fff;
+      font-size: 1.35rem;
+      font-weight: 700;
+      margin-bottom: 0.4rem;
+    }
+    .collection-overlay p {
+      color: rgba(255,255,255,0.75);
+      font-size: 0.88rem;
+      margin-bottom: 0.8rem;
+      line-height: 1.6;
+    }
+    .collection-link {
+      color: var(--warm-gold);
+      font-family: var(--font-heading);
+      font-weight: 700;
+      font-size: 0.88rem;
+      transition: gap 0.2s;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .collection-link:hover { gap: 10px; color: var(--warm-gold); }
+
+    /* =============================================
+       SECTION 3 – GIFT IDEAS
+    ============================================= */
+    .section-gift-ideas { background: var(--white); padding: 6rem 0; }
+    .section-gift-ideas h2 {
+      font-size: clamp(1.8rem, 3.5vw, 2.7rem);
+      color: var(--midnight-navy);
+    }
+    .section-gift-ideas h2 span { color: var(--royal-text); }
+    .filter-tabs { display: flex; flex-wrap: wrap; gap: 0.6rem; justify-content: center; margin-bottom: 3rem; }
+    .filter-tab {
+      background: var(--light-grey);
+      border: 1.5px solid transparent;
+      color: var(--text-dark);
+      font-family: var(--font-heading);
+      font-weight: 600;
+      font-size: 0.84rem;
+      padding: 0.45rem 1.1rem;
+      border-radius: 50px;
+      cursor: pointer;
+      transition: var(--transition);
+    }
+    .filter-tab.active, .filter-tab:hover {
+      background: var(--navy-surface);
+      color: #fff;
+      border-color: var(--midnight-navy);
+    }
+    .gift-card {
+      background: var(--white);
+      border-radius: 18px;
+      overflow: hidden;
+      box-shadow: var(--shadow-sm);
+      transition: var(--transition);
+      border: 1px solid rgba(0,0,0,0.06);
+    }
+    .gift-card:hover { transform: translateY(-6px); box-shadow: var(--shadow-md); }
+    .gift-card-img {
+      width: 100%;
+      height: 220px;
+      object-fit: cover;
+      transition: transform 0.4s ease;
+    }
+    .gift-card:hover .gift-card-img { transform: scale(1.05); }
+    .gift-card-img-wrap { overflow: hidden; position: relative; }
+    .gift-tag {
+      position: absolute;
+      top: 1rem; left: 1rem;
+      background: var(--warm-gold);
+      color: #0D1B2A;
+      font-size: 0.72rem;
+      font-weight: 700;
+      font-family: var(--font-heading);
+      padding: 0.25rem 0.65rem;
+      border-radius: 50px;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+    }
+    .gift-card-body { padding: 1.4rem; }
+    .gift-card-body h4 {
+      font-size: 1rem;
+      font-weight: 700;
+      color: var(--midnight-navy);
+      margin-bottom: 0.5rem;
+    }
+    .gift-card-body p {
+      font-size: 0.84rem;
+      color: var(--text-muted);
+      line-height: 1.6;
+      margin-bottom: 0.9rem;
+    }
+    .gift-price {
+      font-family: var(--font-heading);
+      font-weight: 800;
+      font-size: 0.88rem;
+      color: var(--royal-text);
+    }
+
+    /* =============================================
+       SECTION 4 – CUSTOMIZATION
+    ============================================= */
+    .section-custom { background: var(--navy-surface); padding: 6rem 0; }
+    .section-custom h2 { font-size: clamp(1.8rem, 3.5vw, 2.7rem); color: #fff; margin-bottom: 1rem; }
+    .section-custom .section-label::before { background: var(--warm-gold); }
+    .custom-image {
+      border-radius: 20px;
+      object-fit: cover;
+      width: 100%;
+      aspect-ratio: 4/5;
+      box-shadow: 0 20px 60px rgba(0,0,0,0.5);
+    }
+    .feature-point {
+      display: flex;
+      gap: 1.2rem;
+      padding: 1.4rem;
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 16px;
+      transition: var(--transition);
+      margin-bottom: 1rem;
+    }
+    .feature-point:hover {
+      background: rgba(201,146,42,0.08);
+      border-color: rgba(201,146,42,0.25);
+    }
+    .feature-icon {
+      width: 48px; height: 48px;
+      background: rgba(201,146,42,0.15);
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.3rem;
+      flex-shrink: 0;
+    }
+    .feature-point h4 {
+      font-size: 1rem;
+      font-weight: 700;
+      color: #fff;
+      margin-bottom: 0.3rem;
+    }
+    .feature-point p { font-size: 0.86rem; color: rgba(255,255,255,0.65); line-height: 1.6; margin: 0; }
+
+    /* =============================================
+       SECTION 5 – TRUST / CLIENTS
+    ============================================= */
+    .section-trust { background: var(--light-grey); padding: 6rem 0; }
+    .section-trust h2 {
+      font-size: clamp(1.8rem, 3.5vw, 2.7rem);
+      color: var(--midnight-navy);
+    }
+    .section-trust h2 span { color: var(--royal-text); }
+    .counter-stat {
+      text-align: center;
+      padding: 2rem 1rem;
+    }
+    .counter-num {
+      font-family: var(--font-heading);
+      font-size: clamp(2.2rem, 4vw, 3.2rem);
+      font-weight: 800;
+      color: var(--royal-text);
+      line-height: 1;
+      margin-bottom: 0.4rem;
+    }
+    .counter-label {
+      font-size: 0.88rem;
+      color: var(--text-muted);
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+    }
+    .client-logo-box {
+      background: var(--white);
+      border: 1px solid rgba(0,0,0,0.07);
+      border-radius: 14px;
+      padding: 1.4rem;
+      text-align: center;
+      font-family: var(--font-heading);
+      font-weight: 700;
+      font-size: 0.95rem;
+      color: var(--midnight-navy);
+      transition: var(--transition);
+      letter-spacing: -0.01em;
+    }
+    .client-logo-box:hover {
+      border-color: var(--warm-gold);
+      box-shadow: 0 4px 20px rgba(201,146,42,0.15);
+      color: var(--royal-text);
+    }
+    .trust-tagline {
+      font-size: 1rem;
+      color: var(--text-muted);
+      font-style: italic;
+      text-align: center;
+      margin: 2.5rem 0;
+    }
+    .testimonial-card {
+      background: var(--white);
+      border-radius: 20px;
+      padding: 2rem;
+      box-shadow: var(--shadow-sm);
+      border: 1px solid rgba(0,0,0,0.06);
+      height: 100%;
+      transition: var(--transition);
+    }
+    .testimonial-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-md); }
+    .stars { color: var(--gold-text); font-size: 1rem; margin-bottom: 1rem; letter-spacing: 2px; }
+    .testimonial-text {
+      font-size: 0.93rem;
+      color: var(--text-muted);
+      line-height: 1.75;
+      margin-bottom: 1.4rem;
+      font-style: italic;
+    }
+    .testimonial-author { display: flex; align-items: center; gap: 0.8rem; }
+    .author-avatar {
+      width: 44px; height: 44px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--royal-blue), var(--warm-gold));
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: var(--font-heading);
+      font-weight: 800;
+      color: #fff;
+      font-size: 1rem;
+      flex-shrink: 0;
+    }
+    .author-name { font-weight: 700; font-size: 0.9rem; color: var(--midnight-navy); }
+    .author-role { font-size: 0.78rem; color: var(--text-muted); }
+
+    /* =============================================
+       SECTION 6 – CTA
+    ============================================= */
+    .section-cta {
+      background: linear-gradient(135deg, var(--navy-surface) 0%, #0a2a5e 50%, var(--navy-surface) 100%);
+      padding: 6rem 0;
+      position: relative;
+      overflow: hidden;
+    }
+    .section-cta::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background-image: radial-gradient(circle, rgba(255,255,255,0.04) 1px, transparent 1px);
+      background-size: 30px 30px;
+    }
+    .section-cta h2 {
+      font-size: clamp(1.9rem, 4vw, 3rem);
+      color: #fff;
+      margin-bottom: 1rem;
+    }
+    .section-cta .subtitle {
+      color: rgba(255,255,255,0.72);
+      font-size: 1.05rem;
+      max-width: 580px;
+      margin: 0 auto 2.4rem;
+    }
+    .benefit-chips { display: flex; flex-wrap: wrap; gap: 1rem; justify-content: center; margin-top: 2rem; }
+    .benefit-chip {
+      display: flex;
+      align-items: center;
+      gap: 7px;
+      color: rgba(255,255,255,0.8);
+      font-family: var(--font-heading);
+      font-size: 0.88rem;
+      font-weight: 600;
+    }
+    .benefit-chip .check {
+      width: 22px; height: 22px;
+      background: rgba(201,146,42,0.2);
+      border: 1px solid var(--warm-gold);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.65rem;
+      color: var(--warm-gold);
+    }
+
+    /* =============================================
+       RESPONSIVE
+    ============================================= */
+    @media (max-width: 768px) {
+      .hero-title { font-size: 2rem; overflow-wrap: anywhere; }
+      .hero-image-wrap { margin-top: 2.5rem; }
+      .collection-showcase.large img { height: 300px; }
+      .collection-showcase.small img { height: 200px; }
+      .client-logo-box { padding: 1rem 0.5rem; font-size: 0.75rem; overflow-wrap: anywhere; }
+    }
+    @media (max-width: 480px) {
+      .hero-title { font-size: 1.75rem; }
+      .client-logo-box { padding: 0.85rem 0.35rem; font-size: 0.6875rem; }
+    }
+    @media (max-width: 360px) {
+      .hero-title { font-size: 1.625rem; }
+      .client-logo-box { padding: 0.75rem 0.25rem; font-size: 0.625rem; }
+    }
+  </style>
+</head>
+<body style="--hero-bg-image: url('https://images.unsplash.com/photo-1513475382585-d06e58bcb0e0?w=1800&q=80');">
+
+<nav class="navbar-giftcraft navbar-light-bg" role="navigation" aria-label="Main navigation">
+  <div class="container">
+    <div class="d-flex align-items-center justify-content-between w-100">
+      <a href="index.html" class="navbar-brand-logo text-decoration-none"><img src="assets/logo.svg" alt="" class="brand-mark" />Gift<span>Craft</span></a>
+      <div class="d-none d-lg-flex align-items-center gap-1">
+        <a class="nav-link-custom active" href="index.html">Home</a>
+        <a class="nav-link-custom" href="home2.html">Home2</a>
+        <a class="nav-link-custom" href="about.html">About</a>
+        <a class="nav-link-custom" href="services.html">Service</a>
+        <a class="nav-link-custom" href="blog.html">Blog</a>
+        <a class="nav-link-custom" href="contact.html">Contact</a>
+      </div>
+      <div class="d-none d-lg-flex align-items-center gap-2">
+        <button class="btn-rtl-toggle" aria-label="Toggle RTL"><span class="rtl-label">RTL</span></button>
+        <button class="btn-theme-toggle" aria-label="Toggle dark mode"><i class="bi bi-moon-fill"></i></button>
+        <a href="contact.html" class="btn-gold-custom" style="padding:10px 22px;font-size:0.8125rem;">Get a Quote</a>
+      </div>
+      <button class="mobile-menu-toggle navbar-toggler-custom d-lg-none" aria-label="Open menu">
+        <i class="bi bi-list fs-4"></i>
+      </button>
+    </div>
+  </div>
+</nav>
+
+<div class="mobile-overlay"></div>
+<div class="mobile-menu">
+  <div class="d-flex align-items-center justify-content-between mb-4">
+    <span class="footer-brand" style="font-size:1.25rem;"><img src="assets/logo.svg" alt="" class="brand-mark" />Gift<span>Craft</span></span>
+    <button class="mobile-menu-close" aria-label="Close menu"><i class="bi bi-x-lg"></i></button>
+  </div>
+  <nav>
+    <a href="index.html" class="footer-link" style="font-size:1rem;padding:8px 0;display:block;color:var(--warm-gold);">Home</a>
+    <a href="home2.html" class="footer-link" style="font-size:1rem;padding:8px 0;display:block;">Home2</a>
+    <a href="about.html" class="footer-link" style="font-size:1rem;padding:8px 0;display:block;">About</a>
+    <a href="services.html" class="footer-link" style="font-size:1rem;padding:8px 0;display:block;">Service</a>
+    <a href="blog.html" class="footer-link" style="font-size:1rem;padding:8px 0;display:block;">Blog</a>
+    <a href="contact.html" class="footer-link" style="font-size:1rem;padding:8px 0;display:block;">Contact</a>
+  </nav>
+  <div class="mt-4 d-flex gap-2">
+    <button class="btn-rtl-toggle" aria-label="Toggle RTL"><span class="rtl-label">RTL</span></button>
+    <button class="btn-theme-toggle"><i class="bi bi-moon-fill"></i></button>
+  </div>
+  <a href="contact.html" class="btn-gold-custom mt-4 d-block text-center">Get a Quote</a>
+</div>
+
+<!-- ==========================================
+     SECTION 1 – HERO
+=========================================== -->
+<section class="hero-section" id="hero">
+  <div class="hero-overlay"></div>
+  <div class="container">
+    <div class="row align-items-center min-vh-100 py-5">
+      <!-- Left content -->
+      <div class="col-lg-6" data-aos="fade-right" data-aos-duration="900">
+        <span class="hero-eyebrow">Premium Corporate Gifting</span>
+        <h1 class="hero-title">Transform Business <span class="gradient-text">Relationships</span> Into Lasting Impressions</h1>
+        <p class="hero-subtitle">GiftCraft delivers premium branded merchandise, luxury gift sets and bespoke corporate gifting solutions that strengthen partnerships and celebrate milestones.</p>
+        <div class="hero-buttons">
+          <a href="services.html" class="btn-gold-custom">Explore Collections <i class="bi bi-arrow-right"></i></a>
+          <a href="contact.html" class="btn-outline-white">Get Custom Quote <i class="bi bi-chat-dots"></i></a>
+        </div>
+        <div class="hero-stats">
+          <span class="stat-chip">500+ Corporate Clients</span>
+          <span class="stat-chip">10M+ Gifts Delivered</span>
+          <span class="stat-chip">98% Client Satisfaction</span>
+        </div>
+      </div>
+      <!-- Right: floating mockup -->
+      <div class="col-lg-6 mt-5 mt-lg-0" data-aos="fade-left" data-aos-duration="900" data-aos-delay="150">
+        <div class="hero-image-wrap">
+          <div class="hero-gold-ring2"></div>
+          <div class="hero-gold-ring"></div>
+          <img
+            src="https://images.unsplash.com/photo-1549465220-1a8b9238cd48?w=600&q=80"
+            alt="Luxury gift box mockup"
+            class="hero-mockup-img"
+          />
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- Scroll indicator -->
+  <div class="scroll-indicator">
+    <div class="arrow"></div>
+    <span>Scroll</span>
+  </div>
+</section>
+
+<!-- ==========================================
+     SECTION 2 – FEATURED GIFT COLLECTIONS
+=========================================== -->
+<section class="section-collections" id="collections">
+  <div class="container">
+    <div class="text-center mb-5" data-aos="fade-up">
+      <span class="section-label">Curated Collections</span>
+      <h2>Premium Gift Collections <span>For Every Occasion</span></h2>
+    </div>
+
+    <div class="row g-3" data-aos="fade-up" data-aos-delay="100">
+      <!-- Large card -->
+      <div class="col-md-6">
+        <div class="collection-showcase large">
+          <img src="https://images.unsplash.com/photo-1497366858526-0766cadbe8fa?w=800&q=80" alt="Executive Gift Sets" />
+          <div class="collection-overlay">
+            <h3>Executive Gift Sets</h3>
+            <p>Hand-crafted luxury hampers for C-suite executives and VIP clients</p>
+            <a href="services.html" class="collection-link">View Collection <i class="bi bi-arrow-right"></i></a>
+          </div>
+        </div>
+      </div>
+      <!-- Two stacked cards -->
+      <div class="col-md-6 d-flex flex-column gap-3">
+        <div class="collection-showcase small">
+          <img src="https://images.unsplash.com/photo-1523293182086-7651a899d37f?w=800&q=80" alt="Branded Merchandise" />
+          <div class="collection-overlay">
+            <h3>Branded Merchandise</h3>
+            <p>Custom-branded apparel, accessories and office essentials</p>
+            <a href="services.html" class="collection-link">View Collection <i class="bi bi-arrow-right"></i></a>
+          </div>
+        </div>
+        <div class="collection-showcase small">
+          <img src="https://images.unsplash.com/photo-1543158266-0066955047b1?w=800&q=80" alt="Festive Gift Boxes" />
+          <div class="collection-overlay">
+            <h3>Festive Gift Boxes</h3>
+            <p>Seasonal hampers for Eid, Christmas, Diwali and New Year celebrations</p>
+            <a href="services.html" class="collection-link">View Collection <i class="bi bi-arrow-right"></i></a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ==========================================
+     SECTION 3 – POPULAR GIFT IDEAS
+=========================================== -->
+<section class="section-gift-ideas" id="gift-ideas">
+  <div class="container">
+    <div class="text-center mb-4" data-aos="fade-up">
+      <span class="section-label">Gift Ideas</span>
+      <h2 class="mb-4">Most Loved <span>Corporate Gift Ideas</span></h2>
+      <!-- Filter tabs -->
+      <div class="filter-tabs" id="filterTabs">
+        <button class="filter-tab active" data-filter="all">All</button>
+        <button class="filter-tab" data-filter="Office">Office Accessories</button>
+        <button class="filter-tab" data-filter="Apparel">Apparel</button>
+        <button class="filter-tab" data-filter="Technology">Technology</button>
+        <button class="filter-tab" data-filter="Luxury">Luxury Sets</button>
+      </div>
+    </div>
+
+    <div class="row g-4" id="giftGrid">
+      <!-- Card 1 -->
+      <div class="col-md-6 col-lg-4 gift-item" data-category="Office" data-aos="fade-up" data-aos-delay="0">
+        <div class="gift-card">
+          <div class="gift-card-img-wrap">
+            <img src="https://images.unsplash.com/photo-1531346878377-a5be20888e57?w=600&q=80" alt="Leather Desk Organiser Set" class="gift-card-img" />
+            <span class="gift-tag">Office</span>
+          </div>
+          <div class="gift-card-body">
+            <h4>Leather Desk Organiser Set</h4>
+            <p>Handcrafted full-grain leather desk accessories with custom embossing</p>
+            <span class="gift-price">From AED 85/unit</span>
+          </div>
+        </div>
+      </div>
+      <!-- Card 2 -->
+      <div class="col-md-6 col-lg-4 gift-item" data-category="Apparel" data-aos="fade-up" data-aos-delay="60">
+        <div class="gift-card">
+          <div class="gift-card-img-wrap">
+            <img src="https://images.unsplash.com/photo-1620799140408-edc6dcb6d633?w=600&q=80" alt="Premium Embroidered Polo Set" class="gift-card-img" />
+            <span class="gift-tag">Apparel</span>
+          </div>
+          <div class="gift-card-body">
+            <h4>Premium Embroidered Polo Set</h4>
+            <p>Corporate polo shirts with precision logo embroidery in 20+ colors</p>
+            <span class="gift-price">From AED 65/unit</span>
+          </div>
+        </div>
+      </div>
+      <!-- Card 3 -->
+      <div class="col-md-6 col-lg-4 gift-item" data-category="Technology" data-aos="fade-up" data-aos-delay="120">
+        <div class="gift-card">
+          <div class="gift-card-img-wrap">
+            <img src="https://images.unsplash.com/photo-1583394838336-acd977736f90?w=600&q=80" alt="Wireless Charging Gift Kit" class="gift-card-img" />
+            <span class="gift-tag">Technology</span>
+          </div>
+          <div class="gift-card-body">
+            <h4>Wireless Charging Gift Kit</h4>
+            <p>Branded wireless charger, earbuds and power bank gift set</p>
+            <span class="gift-price">From AED 220/unit</span>
+          </div>
+        </div>
+      </div>
+      <!-- Card 4 -->
+      <div class="col-md-6 col-lg-4 gift-item" data-category="Luxury" data-aos="fade-up" data-aos-delay="0">
+        <div class="gift-card">
+          <div class="gift-card-img-wrap">
+            <img src="https://images.unsplash.com/photo-1528823872057-9c018a7a7553?w=600&q=80" alt="Executive Luxury Hamper" class="gift-card-img" />
+            <span class="gift-tag">Luxury</span>
+          </div>
+          <div class="gift-card-body">
+            <h4>Executive Luxury Hamper</h4>
+            <p>Curated gourmet treats, fine chocolates and premium lifestyle products</p>
+            <span class="gift-price">From AED 350/unit</span>
+          </div>
+        </div>
+      </div>
+      <!-- Card 5 -->
+      <div class="col-md-6 col-lg-4 gift-item" data-category="Office" data-aos="fade-up" data-aos-delay="60">
+        <div class="gift-card">
+          <div class="gift-card-img-wrap">
+            <img src="https://images.unsplash.com/photo-1603484477859-abe6a73f9366?w=600&q=80" alt="Custom Notebook Collection" class="gift-card-img" />
+            <span class="gift-tag">Office</span>
+          </div>
+          <div class="gift-card-body">
+            <h4>Custom Notebook Collection</h4>
+            <p>Hardbound journals with foil-stamped logo and lay-flat binding</p>
+            <span class="gift-price">From AED 45/unit</span>
+          </div>
+        </div>
+      </div>
+      <!-- Card 6 -->
+      <div class="col-md-6 col-lg-4 gift-item" data-category="Technology" data-aos="fade-up" data-aos-delay="120">
+        <div class="gift-card">
+          <div class="gift-card-img-wrap">
+            <img src="https://images.unsplash.com/photo-1544145945-f90425340c7e?w=600&q=80" alt="Smart Tumbler Gift Set" class="gift-card-img" />
+            <span class="gift-tag">Technology</span>
+          </div>
+          <div class="gift-card-body">
+            <h4>Smart Tumbler Gift Set</h4>
+            <p>Stainless steel insulated tumblers with 360° laser engraving</p>
+            <span class="gift-price">From AED 95/unit</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ==========================================
+     SECTION 4 – CUSTOMIZATION HIGHLIGHTS
+=========================================== -->
+<section class="section-custom" id="customization">
+  <div class="container">
+    <div class="row align-items-center g-5">
+      <!-- Left image -->
+      <div class="col-lg-5" data-aos="fade-right">
+        <img
+          src="https://images.unsplash.com/photo-1505236858219-8359eb29e329?w=800&q=80"
+          alt="Artisan crafting gifts"
+          class="custom-image"
+        />
+      </div>
+      <!-- Right content -->
+      <div class="col-lg-7" data-aos="fade-left">
+        <span class="section-label">Bespoke Gifting</span>
+        <h2>Every Gift, <span class="gradient-text">Perfectly Personalised</span></h2>
+        <p class="mb-4" style="color:rgba(255,255,255,0.65);font-size:1rem;line-height:1.75">
+          We believe every gift tells a story. Our in-house artisans and global supply chain work together to create gifting experiences that reflect your brand's values and your recipient's personality.
+        </p>
+        <div class="feature-point">
+          <div class="feature-icon"><i class="bi bi-palette-fill"></i></div>
+          <div>
+            <h4>Custom Branding</h4>
+            <p>Logos, names, messages and artwork applied with precision across 50+ techniques</p>
+          </div>
+        </div>
+        <div class="feature-point">
+          <div class="feature-icon"><i class="bi bi-box-seam"></i></div>
+          <div>
+            <h4>Premium Packaging</h4>
+            <p>Rigid gift boxes, magnetic closures, custom ribbons and branded tissue paper</p>
+          </div>
+        </div>
+        <div class="feature-point">
+          <div class="feature-icon"><i class="bi bi-globe2"></i></div>
+          <div>
+            <h4>Global Delivery</h4>
+            <p>White-glove delivery to 60+ countries with tracked, insured shipping</p>
+          </div>
+        </div>
+        <div class="feature-point">
+          <div class="feature-icon"><i class="bi bi-lightning-charge-fill"></i></div>
+          <div>
+            <h4>72-Hour Turnaround</h4>
+            <p>Express production for urgent corporate events and last-minute milestones</p>
+          </div>
+        </div>
+        <a href="contact.html" class="btn-gold-custom mt-2">Start Customising <i class="bi bi-arrow-right"></i></a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ==========================================
+     SECTION 5 – TRUST / CLIENTS
+=========================================== -->
+<section class="section-trust" id="clients">
+  <div class="container">
+    <div class="text-center mb-5" data-aos="fade-up">
+      <span class="section-label">Trusted By Leaders</span>
+      <h2>Powering Corporate Gifting For <span>Industry Giants</span></h2>
+    </div>
+
+    <!-- Counters -->
+    <div class="row g-3 mb-5">
+      <div class="col-6 col-md-3" data-aos="fade-up" data-aos-delay="0">
+        <div class="counter-stat">
+          <div class="counter-num" data-target="500">0+</div>
+          <div class="counter-label">Corporate Clients</div>
+        </div>
+      </div>
+      <div class="col-6 col-md-3" data-aos="fade-up" data-aos-delay="80">
+        <div class="counter-stat">
+          <div class="counter-num" data-target="10">0M+</div>
+          <div class="counter-label">Gifts Delivered</div>
+        </div>
+      </div>
+      <div class="col-6 col-md-3" data-aos="fade-up" data-aos-delay="160">
+        <div class="counter-stat">
+          <div class="counter-num" data-target="60">0+</div>
+          <div class="counter-label">Countries Served</div>
+        </div>
+      </div>
+      <div class="col-6 col-md-3" data-aos="fade-up" data-aos-delay="240">
+        <div class="counter-stat">
+          <div class="counter-num" data-target="98">0%</div>
+          <div class="counter-label">Client Satisfaction</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Client logos -->
+    <div class="row g-3 mb-3" data-aos="fade-up">
+      <div class="col-6 col-md-3"><div class="client-logo-box">Microsoft</div></div>
+      <div class="col-6 col-md-3"><div class="client-logo-box">Emirates</div></div>
+      <div class="col-6 col-md-3"><div class="client-logo-box">ADNOC</div></div>
+      <div class="col-6 col-md-3"><div class="client-logo-box">Deloitte</div></div>
+      <div class="col-6 col-md-3"><div class="client-logo-box">PricewaterhouseCoopers</div></div>
+      <div class="col-6 col-md-3"><div class="client-logo-box">Marriott</div></div>
+      <div class="col-6 col-md-3"><div class="client-logo-box">HSBC</div></div>
+      <div class="col-6 col-md-3"><div class="client-logo-box">Amazon</div></div>
+    </div>
+
+    <p class="trust-tagline" data-aos="fade-up">Join 500+ leading corporations who trust GiftCraft for their most important gifting moments</p>
+
+    <!-- Testimonials -->
+    <div class="row g-4" data-aos="fade-up" data-aos-delay="100">
+      <div class="col-md-4">
+        <div class="testimonial-card">
+          <div class="stars"><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i></div>
+          <p class="testimonial-text">"GiftCraft transformed our employee appreciation programme. The quality and presentation exceeded every expectation."</p>
+          <div class="testimonial-author">
+            <div class="author-avatar">SA</div>
+            <div>
+              <div class="author-name">Sarah Al-Mansouri</div>
+              <div class="author-role">Head of HR, Emirates Group</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="testimonial-card">
+          <div class="stars"><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i></div>
+          <p class="testimonial-text">"Exceptional service from brief to delivery. Our 2,000-unit branded merchandise order was perfect, on time and within budget."</p>
+          <div class="testimonial-author">
+            <div class="author-avatar">JW</div>
+            <div>
+              <div class="author-name">James Whitfield</div>
+              <div class="author-role">Procurement Director, Deloitte</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="testimonial-card">
+          <div class="stars"><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i></div>
+          <p class="testimonial-text">"The attention to detail in packaging and customisation is unmatched. Our clients genuinely love receiving GiftCraft boxes."</p>
+          <div class="testimonial-author">
+            <div class="author-avatar">PN</div>
+            <div>
+              <div class="author-name">Priya Nair</div>
+              <div class="author-role">Brand Manager, HSBC</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ==========================================
+     SECTION 6 – CTA
+=========================================== -->
+<section class="section-cta" id="quote">
+  <div class="container text-center position-relative" data-aos="zoom-in" data-aos-duration="700">
+    <span class="section-label" style="color:var(--warm-gold)">Get Started</span>
+    <h2>Ready To Elevate Your <span class="gradient-text">Corporate Gifting</span>?</h2>
+    <p class="subtitle">Get a bespoke quote within 2 hours. No minimums for premium orders, bulk pricing from 50+ units.</p>
+    <div class="d-flex flex-wrap justify-content-center gap-3">
+      <a href="contact.html" class="btn-gold-custom">Request a Free Quote <i class="bi bi-arrow-right"></i></a>
+      <a href="services.html" class="btn-outline-white">Browse All Services</a>
+    </div>
+    <div class="benefit-chips">
+      <span class="benefit-chip"><span class="check"><i class="bi bi-check-lg"></i></span> Free Consultation</span>
+      <span class="benefit-chip"><span class="check"><i class="bi bi-check-lg"></i></span> No Hidden Fees</span>
+      <span class="benefit-chip"><span class="check"><i class="bi bi-check-lg"></i></span> 100% Satisfaction Guarantee</span>
+    </div>
+  </div>
+</section>
+
+<footer class="footer-main" role="contentinfo">
+  <div class="container">
+    <div class="row g-5">
+      <div class="col-lg-4 col-md-6">
+        <a href="index.html" class="footer-brand"><img src="assets/logo.svg" alt="" class="brand-mark" />Gift<span>Craft</span></a>
+        <p class="footer-desc">Elevating Corporate Relationships Through Thoughtful Gifting. UAE's most trusted corporate gifting partner since 2015.</p>
+        <div class="footer-social d-flex gap-2 mt-4">
+          <a href="#" aria-label="LinkedIn"><i class="bi bi-linkedin"></i></a>
+          <a href="#" aria-label="Twitter/X"><i class="bi bi-twitter-x"></i></a>
+          <a href="#" aria-label="Instagram"><i class="bi bi-instagram"></i></a>
+          <a href="#" aria-label="Facebook"><i class="bi bi-facebook"></i></a>
+        </div>
+      </div>
+      <div class="col-lg-2 col-md-3 col-sm-6">
+        <h4 class="footer-heading">Company</h4>
+        <a href="index.html" class="footer-link">Home</a>
+        <a href="home2.html" class="footer-link">Home2</a>
+        <a href="about.html" class="footer-link">About</a>
+        <a href="services.html" class="footer-link">Service</a>
+        <a href="blog.html" class="footer-link">Blog</a>
+        <a href="contact.html" class="footer-link">Contact</a>
+      </div>
+      <div class="col-lg-2 col-md-3 col-sm-6">
+        <h4 class="footer-heading">Services</h4>
+        <a href="service-details.html" class="footer-link">Corporate Gifting</a>
+        <a href="service-details.html" class="footer-link">Product Branding</a>
+        <a href="service-details.html" class="footer-link">Bulk Fulfillment</a>
+        <a href="service-details.html" class="footer-link">Premium Packaging</a>
+        <a href="service-details.html" class="footer-link">Global Delivery</a>
+      </div>
+      <div class="col-lg-4 col-md-6">
+        <h4 class="footer-heading">Newsletter</h4>
+        <p class="footer-desc mb-3">Get weekly gifting insights, trend reports and exclusive offers.</p>
+        <div class="newsletter-input-wrap">
+          <input type="email" class="newsletter-input" placeholder="Your work email" aria-label="Email for newsletter" />
+          <button class="newsletter-submit" type="button">Subscribe</button>
+        </div>
+        <p class="mt-3" style="font-size:0.8125rem;color:rgba(255,255,255,0.72);"><i class="bi bi-geo-alt-fill"></i> 1204 Business Bay, Dubai, UAE<br /><i class="bi bi-envelope-fill"></i> hello@giftcraft.ae | <i class="bi bi-telephone-fill"></i> +971 4 123 4567</p>
+      </div>
+    </div>
+    <div class="footer-bottom d-flex flex-wrap align-items-center justify-content-between gap-2">
+      <p style="color:rgba(255,255,255,0.72);font-size:0.8125rem;margin:0;">© 2026 GiftCraft. All rights reserved.</p>
+      <div class="d-flex gap-3">
+        <a href="#" style="color:rgba(255,255,255,0.72);font-size:0.8125rem;">Privacy Policy</a>
+        <a href="#" style="color:rgba(255,255,255,0.72);font-size:0.8125rem;">Terms of Service</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<button class="back-to-top" aria-label="Back to top"><i class="bi bi-arrow-up"></i></button>
+
+<!-- Bootstrap 5.3 JS -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+<!-- AOS -->
+<script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+<!-- Shared JS -->
+<script src="assets/js/main.js"></script>
+
+<script>
+  // AOS init
+  AOS.init({ duration: 700, once: true, offset: 60 });
+
+  // Gift card filter tabs
+  const tabs = document.querySelectorAll('.filter-tab');
+  const items = document.querySelectorAll('.gift-item');
+  tabs.forEach(tab => {
+    tab.addEventListener('click', () => {
+      tabs.forEach(t => t.classList.remove('active'));
+      tab.classList.add('active');
+      const filter = tab.getAttribute('data-filter');
+      items.forEach(item => {
+        const show = filter === 'all' || item.getAttribute('data-category') === filter;
+        item.style.display = show ? '' : 'none';
+      });
+    });
+  });
+
+  // Animated counters
+  function animateCounters() {
+    const counters = document.querySelectorAll('.counter-num');
+    counters.forEach((el, i) => {
+      const suffixes = ['+', 'M+', '+', '%'];
+      const targets = [500, 10, 60, 98];
+      let count = 0;
+      const target = targets[i];
+      const step = Math.ceil(target / 60);
+      const timer = setInterval(() => {
+        count = Math.min(count + step, target);
+        el.textContent = count + suffixes[i];
+        if (count >= target) clearInterval(timer);
+      }, 25);
+    });
+  }
+
+  // Trigger counters when section in view
+  const trustSection = document.querySelector('.section-trust');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => { if (entry.isIntersecting) { animateCounters(); observer.disconnect(); } });
+  }, { threshold: 0.3 });
+  if (trustSection) observer.observe(trustSection);
+</script>
+</body>
+</html>

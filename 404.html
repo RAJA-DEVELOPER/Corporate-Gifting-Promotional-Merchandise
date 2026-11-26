@@ -1,0 +1,956 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="icon" type="image/svg+xml" href="assets/favicon.svg" />
+  <title>404 – Page Not Found | GiftCraft</title>
+  <meta name="description" content="Oops! The page you're looking for has gone missing. Find your way back to our premium corporate gifting solutions." />
+  <meta property="og:title" content="404 – Page Not Found | GiftCraft" />
+  <meta property="og:description" content="Oops! The page you're looking for has gone missing. Find your way back to our premium corporate gifting solutions." />
+  <meta property="og:type" content="website" />
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800;900&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+
+  <!-- Bootstrap 5.3 -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" />
+  <!-- Bootstrap Icons -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" />
+  <!-- AOS -->
+  <link rel="stylesheet" href="https://unpkg.com/aos@2.3.4/dist/aos.css" />
+
+  <!-- Shared CSS -->
+  <link rel="stylesheet" href="assets/css/style.css" />
+
+  <style>
+    /* ===========================
+       CSS CUSTOM PROPERTIES
+    =========================== */
+    :root {
+      --midnight-navy: #0D1B2A;
+      --royal-blue: #1B4FBF;
+      --warm-gold: #C9922A;
+      --ivory: #FAF8F3;
+      --light-grey: #F1F3F7;
+      --gold-light: #E8B64D;
+      --font-heading: 'Manrope', sans-serif;
+      --font-body: 'Plus Jakarta Sans', sans-serif;
+    }
+    html[data-theme="dark"] {
+      --midnight-navy: #0D1B2A;
+      --royal-blue: #1B4FBF;
+      --warm-gold: #C9922A;
+      --ivory: #FAF8F3;
+      --light-grey: #F1F3F7;
+      --surface: #FFFFFF;
+      --gold-text: #8A5A12;
+      --danger-text: #B91C1C;
+      --navy-surface: #0D1B2A;
+    }
+
+    * { box-sizing: border-box; }
+
+    html, body {
+      margin: 0;
+      padding: 0;
+      font-family: var(--font-body);
+      background: var(--navy-surface);
+      color: var(--ivory);
+      overflow-x: hidden;
+    }
+
+    h1, h2, h3, h4, h5, h6 {
+      font-family: var(--font-heading);
+    }
+
+    /* ===========================
+       KEYFRAME ANIMATIONS
+    =========================== */
+    @keyframes float {
+      0%, 100% { transform: translateY(0px); }
+      50%       { transform: translateY(-20px); }
+    }
+
+    @keyframes floatSlow {
+      0%, 100% { transform: translateY(0px) rotate(0deg); }
+      50%       { transform: translateY(-15px) rotate(5deg); }
+    }
+
+    @keyframes glow {
+      0%, 100% { text-shadow: 0 0 40px rgba(201,146,42,0.3), 0 0 80px rgba(201,146,42,0.1); }
+      50%       { text-shadow: 0 0 80px rgba(201,146,42,0.6), 0 0 120px rgba(201,146,42,0.3); }
+    }
+
+    @keyframes dotPulse {
+      0%, 100% { opacity: 0.3; }
+      50%       { opacity: 0.6; }
+    }
+
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(30px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes shimmer {
+      0%   { background-position: -200% center; }
+      100% { background-position: 200% center; }
+    }
+
+    /* ===========================
+       TOP BAR
+    =========================== */
+    .top-bar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 1000;
+      padding: 18px 40px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background: rgba(13, 27, 42, 0.85);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(201,146,42,0.15);
+    }
+
+    .brand-logo {
+      font-family: var(--font-heading);
+      font-weight: 800;
+      font-size: 1.5rem;
+      text-decoration: none;
+      letter-spacing: -0.5px;
+    }
+    .brand-logo .logo-gift  { color: #ffffff; }
+    .brand-logo .logo-craft { color: var(--warm-gold); }
+
+    .back-home-link {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      color: var(--ivory);
+      text-decoration: none;
+      font-family: var(--font-body);
+      font-weight: 500;
+      font-size: 0.9rem;
+      transition: color 0.25s ease;
+    }
+    .back-home-link:hover {
+      color: var(--gold-light);
+    }
+    .back-home-link i {
+      font-size: 1rem;
+      transition: transform 0.25s ease;
+    }
+    .back-home-link:hover i {
+      transform: translateX(4px);
+    }
+
+    /* ===========================
+       HERO — SECTION 1
+    =========================== */
+    .full-page-section {
+      min-height: 100vh;
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+      background: var(--hero-overlay), var(--hero-bg-image) center/cover no-repeat;
+      padding: 120px 24px 80px;
+    }
+
+    /* Dot pattern overlay */
+    .full-page-section::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background-image: radial-gradient(circle, rgba(201,146,42,0.12) 1px, transparent 1px);
+      background-size: 40px 40px;
+      animation: dotPulse 4s ease-in-out infinite;
+      pointer-events: none;
+    }
+
+    /* Radial glow */
+    .full-page-section::after {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 70vw;
+      height: 70vh;
+      background: radial-gradient(ellipse, rgba(27,79,191,0.18) 0%, transparent 70%);
+      pointer-events: none;
+    }
+
+    /* Floating gift element */
+    .float-gift {
+      position: absolute;
+      font-size: clamp(3rem, 7vw, 6rem);
+      opacity: 0.08;
+      pointer-events: none;
+      user-select: none;
+      animation: floatSlow 6s ease-in-out infinite;
+    }
+    .float-gift.g1 { top: 15%; left: 8%;  animation-delay: 0s;    font-size: clamp(2.5rem,5vw,5rem); }
+    .float-gift.g2 { top: 20%; right: 6%; animation-delay: 1.5s;  font-size: clamp(2rem,4vw,4rem); opacity: 0.06; }
+    .float-gift.g3 { bottom: 20%; left: 5%;  animation-delay: 3s; font-size: clamp(1.8rem,3.5vw,3.5rem); opacity: 0.05; }
+    .float-gift.g4 { bottom: 15%; right: 10%; animation-delay: 2s; font-size: clamp(2rem,4vw,4rem); opacity: 0.07; }
+    .float-gift.g5 { top: 55%; left: 2%; animation-delay: 4s; font-size: clamp(1.5rem,3vw,3rem); opacity: 0.04; }
+
+    .hero-inner {
+      position: relative;
+      z-index: 2;
+      text-align: center;
+      max-width: 760px;
+      width: 100%;
+    }
+
+    .error-code {
+      font-family: var(--font-heading);
+      font-weight: 900;
+      font-size: clamp(7rem, 20vw, 14rem);
+      line-height: 1;
+      letter-spacing: -4px;
+      background: linear-gradient(135deg, var(--warm-gold) 0%, var(--gold-light) 40%, #f5d07a 60%, var(--warm-gold) 100%);
+      background-size: 200% auto;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      animation: glow 3s ease-in-out infinite, shimmer 4s linear infinite;
+      display: block;
+      margin-bottom: 8px;
+    }
+
+    .hero-inner h1 {
+      font-family: var(--font-heading);
+      font-weight: 800;
+      font-size: clamp(1.6rem, 4vw, 2.8rem);
+      color: #ffffff;
+      margin-bottom: 20px;
+      letter-spacing: -0.5px;
+    }
+
+    .hero-inner .subtitle {
+      font-family: var(--font-body);
+      font-size: clamp(0.95rem, 2vw, 1.1rem);
+      color: rgba(250,248,243,0.75);
+      line-height: 1.75;
+      max-width: 580px;
+      margin: 0 auto 36px;
+    }
+
+    /* CTA Buttons */
+    .btn-gold-custom {
+      background: linear-gradient(135deg, var(--warm-gold), var(--gold-light));
+      color: var(--midnight-navy);
+      border: none;
+      font-family: var(--font-body);
+      font-weight: 700;
+      padding: 14px 32px;
+      border-radius: 50px;
+      font-size: 0.95rem;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 20px rgba(201,146,42,0.35);
+      white-space: nowrap;
+    }
+    .btn-gold-custom:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 8px 30px rgba(201,146,42,0.5);
+      color: var(--midnight-navy);
+      background: linear-gradient(135deg, var(--gold-light), #f5d07a);
+    }
+
+    .btn-outline-white {
+      background: transparent;
+      color: #ffffff;
+      border: 2px solid rgba(255,255,255,0.4);
+      font-family: var(--font-body);
+      font-weight: 600;
+      padding: 13px 28px;
+      border-radius: 50px;
+      font-size: 0.95rem;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      transition: all 0.3s ease;
+      white-space: nowrap;
+    }
+    .btn-outline-white:hover {
+      background: rgba(255,255,255,0.1);
+      border-color: rgba(255,255,255,0.7);
+      color: #ffffff;
+      transform: translateY(-3px);
+    }
+
+    .cta-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+      justify-content: center;
+      align-items: center;
+    }
+
+    /* ===========================
+       SECTION 2 — QUICK LINKS
+    =========================== */
+    .section-quick-links {
+      position: relative;
+      z-index: 3;
+      padding: 80px 24px;
+      background: rgba(13, 27, 42, 0.95);
+    }
+
+    .section-heading {
+      font-family: var(--font-heading);
+      font-weight: 800;
+      font-size: clamp(1.4rem, 3vw, 2rem);
+      color: #ffffff;
+      text-align: center;
+      margin-bottom: 48px;
+      position: relative;
+    }
+    .section-heading::after {
+      content: '';
+      display: block;
+      width: 60px;
+      height: 3px;
+      background: var(--warm-gold);
+      margin: 14px auto 0;
+      border-radius: 2px;
+    }
+
+    .quick-link-card {
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 20px;
+      padding: 32px 28px;
+      text-decoration: none;
+      display: block;
+      transition: all 0.35s ease;
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      height: 100%;
+      position: relative;
+      overflow: hidden;
+    }
+    .quick-link-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 2px;
+      background: linear-gradient(90deg, transparent, var(--warm-gold), transparent);
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+    .quick-link-card:hover {
+      background: rgba(255,255,255,0.1);
+      border-color: rgba(201,146,42,0.4);
+      transform: translateY(-6px);
+      box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+    }
+    .quick-link-card:hover::before {
+      opacity: 1;
+    }
+
+    .quick-link-icon {
+      font-size: 2.2rem;
+      display: block;
+      margin-bottom: 14px;
+    }
+
+    .quick-link-card h5 {
+      font-family: var(--font-heading);
+      font-weight: 700;
+      font-size: 1.1rem;
+      color: #ffffff;
+      margin-bottom: 8px;
+    }
+
+    .quick-link-card p {
+      font-family: var(--font-body);
+      font-size: 0.88rem;
+      color: rgba(250,248,243,0.65);
+      margin: 0;
+      line-height: 1.6;
+    }
+
+    .quick-link-card .arrow-icon {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 32px;
+      height: 32px;
+      background: var(--warm-gold);
+      border-radius: 50%;
+      color: var(--midnight-navy);
+      font-size: 0.85rem;
+      margin-top: 16px;
+      transition: transform 0.25s ease;
+    }
+    .quick-link-card:hover .arrow-icon {
+      transform: translateX(4px);
+    }
+
+    /* ===========================
+       SECTION 3 — FEATURED COLLECTIONS
+    =========================== */
+    .section-collections {
+      padding: 70px 24px;
+      background: linear-gradient(180deg, rgba(27,79,191,0.08) 0%, rgba(13,27,42,0.98) 100%);
+    }
+
+    .section-eyebrow {
+      font-family: var(--font-body);
+      font-size: 0.95rem;
+      color: rgba(250,248,243,0.65);
+      text-align: center;
+      margin-bottom: 36px;
+      max-width: 500px;
+      margin-left: auto;
+      margin-right: auto;
+      line-height: 1.65;
+    }
+
+    .collection-card {
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(201,146,42,0.2);
+      border-radius: 16px;
+      padding: 28px 24px;
+      text-align: center;
+      text-decoration: none;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 10px;
+      transition: all 0.3s ease;
+      height: 100%;
+    }
+    .collection-card:hover {
+      background: rgba(201,146,42,0.1);
+      border-color: var(--warm-gold);
+      transform: translateY(-5px);
+      box-shadow: 0 15px 35px rgba(0,0,0,0.25);
+    }
+
+    .collection-card .coll-icon {
+      width: 56px;
+      height: 56px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--warm-gold), var(--gold-light));
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.5rem;
+      flex-shrink: 0;
+    }
+
+    .collection-card h6 {
+      font-family: var(--font-heading);
+      font-weight: 700;
+      font-size: 1rem;
+      color: #ffffff;
+      margin: 0;
+    }
+
+    .collection-card span.coll-link {
+      font-family: var(--font-body);
+      font-size: 0.82rem;
+      color: var(--warm-gold);
+      font-weight: 600;
+      display: flex;
+      align-items: center;
+      gap: 4px;
+    }
+
+    /* ===========================
+       SECTION 4 — SEARCH + HELP
+    =========================== */
+    .section-search {
+      padding: 70px 24px;
+      background: rgba(13,27,42,0.98);
+    }
+
+    .search-container {
+      max-width: 600px;
+      margin: 0 auto;
+      text-align: center;
+    }
+
+    .search-wrap {
+      display: flex;
+      border-radius: 50px;
+      overflow: hidden;
+      box-shadow: 0 8px 30px rgba(0,0,0,0.3);
+      margin-bottom: 24px;
+    }
+
+    .search-input {
+      flex: 1;
+      border: none;
+      outline: none;
+      padding: 16px 24px;
+      font-family: var(--font-body);
+      font-size: 0.95rem;
+      background: #ffffff;
+      color: var(--midnight-navy);
+    }
+    .search-input::placeholder {
+      color: #5F6B7A;
+    }
+
+    .search-btn {
+      background: linear-gradient(135deg, var(--warm-gold), var(--gold-light));
+      border: none;
+      padding: 16px 28px;
+      color: var(--midnight-navy);
+      font-weight: 700;
+      cursor: pointer;
+      font-size: 1.1rem;
+      transition: background 0.25s ease;
+    }
+    .search-btn:hover {
+      background: linear-gradient(135deg, var(--gold-light), #f5d07a);
+    }
+
+    .search-note {
+      font-family: var(--font-body);
+      font-size: 0.8rem;
+      color: rgba(250,248,243,0.72);
+      margin-bottom: 24px;
+      font-style: italic;
+    }
+
+    .help-text {
+      font-family: var(--font-body);
+      font-size: 0.95rem;
+      color: rgba(250,248,243,0.7);
+      margin-bottom: 20px;
+    }
+
+    .contact-chips {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      justify-content: center;
+    }
+
+    .contact-chip {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(255,255,255,0.08);
+      border: 1px solid rgba(255,255,255,0.15);
+      border-radius: 50px;
+      padding: 10px 20px;
+      font-family: var(--font-body);
+      font-size: 0.88rem;
+      color: var(--ivory);
+      text-decoration: none;
+      transition: all 0.25s ease;
+    }
+    .contact-chip:hover {
+      background: rgba(201,146,42,0.15);
+      border-color: var(--warm-gold);
+      color: var(--ivory);
+    }
+
+    /* ===========================
+       SECTION 5 — TRUST BADGES
+    =========================== */
+    .section-trust {
+      padding: 60px 24px;
+      background: linear-gradient(90deg, rgba(27,79,191,0.12) 0%, rgba(13,27,42,0.95) 50%, rgba(27,79,191,0.12) 100%);
+      border-top: 1px solid rgba(201,146,42,0.1);
+      border-bottom: 1px solid rgba(201,146,42,0.1);
+    }
+
+    .trust-badge {
+      text-align: center;
+      padding: 24px 16px;
+    }
+
+    .trust-badge .trust-number {
+      font-family: var(--font-heading);
+      font-weight: 900;
+      font-size: clamp(2rem, 5vw, 3rem);
+      background: linear-gradient(135deg, var(--warm-gold), var(--gold-light));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      display: block;
+      line-height: 1.1;
+      margin-bottom: 8px;
+    }
+
+    .trust-badge .trust-label {
+      font-family: var(--font-body);
+      font-size: 0.9rem;
+      color: rgba(250,248,243,0.65);
+      font-weight: 500;
+    }
+
+    .trust-divider {
+      width: 1px;
+      background: rgba(255,255,255,0.1);
+      align-self: stretch;
+    }
+
+    /* ===========================
+       SECTION 6 — FOOTER STRIP
+    =========================== */
+    .footer-strip {
+      padding: 36px 40px;
+      background: rgba(5, 12, 20, 0.98);
+      border-top: 1px solid rgba(255,255,255,0.08);
+    }
+
+    .footer-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .footer-links a {
+      font-family: var(--font-body);
+      font-size: 0.85rem;
+      color: rgba(250,248,243,0.55);
+      text-decoration: none;
+      transition: color 0.25s ease;
+    }
+    .footer-links a:hover {
+      color: var(--warm-gold);
+    }
+
+    .footer-copyright {
+      font-family: var(--font-body);
+      font-size: 0.82rem;
+      color: rgba(250,248,243,0.72);
+      text-align: center;
+      margin: 0;
+    }
+
+    .social-icons {
+      display: flex;
+      gap: 12px;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .social-icon-btn {
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.08);
+      border: 1px solid rgba(255,255,255,0.12);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: rgba(250,248,243,0.65);
+      text-decoration: none;
+      font-size: 0.95rem;
+      transition: all 0.25s ease;
+    }
+    .social-icon-btn:hover {
+      background: var(--warm-gold);
+      border-color: var(--warm-gold);
+      color: var(--midnight-navy);
+      transform: translateY(-3px);
+    }
+
+    /* ===========================
+       RESPONSIVE
+    =========================== */
+    @media (max-width: 768px) {
+      .top-bar {
+        padding: 16px 20px;
+        flex-direction: column;
+        gap: 10px;
+        text-align: center;
+      }
+
+      .footer-strip .row > div {
+        text-align: center !important;
+        margin-bottom: 16px;
+      }
+
+      .footer-links {
+        justify-content: center;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .error-code { letter-spacing: -2px; }
+      .search-wrap { border-radius: 12px; flex-direction: column; }
+      .search-input { border-radius: 0; }
+      .search-btn { border-radius: 0; padding: 14px; }
+    }
+  </style>
+</head>
+<body style="--hero-bg-image: url('https://images.unsplash.com/photo-1531058020387-3be344556be6?w=1800&q=80');">
+
+  <!-- ===========================
+       TOP BAR
+  =========================== -->
+  <header class="top-bar">
+    <a href="index.html" class="brand-logo">
+      <img src="assets/logo.svg" alt="" class="brand-mark" /><span class="logo-gift">Gift</span><span class="logo-craft">Craft</span>
+    </a>
+    <a href="index.html" class="back-home-link">
+      Back to Home <i class="bi bi-arrow-right"></i>
+    </a>
+  </header>
+
+  <!-- ===========================
+       SECTION 1 — 404 HERO
+  =========================== -->
+  <section class="full-page-section" id="hero">
+    <!-- Floating decorative elements -->
+    <span class="float-gift g1"><i class="bi bi-gift-fill"></i></span>
+    <span class="float-gift g2"><i class="bi bi-balloon"></i></span>
+    <span class="float-gift g3"><i class="bi bi-trophy-fill"></i></span>
+    <span class="float-gift g4"><i class="bi bi-stars"></i></span>
+    <span class="float-gift g5"><i class="bi bi-stars"></i></span>
+
+    <div class="hero-inner">
+      <span class="error-code" data-aos="zoom-in" data-aos-duration="600">404</span>
+
+      <h1 data-aos="fade-up" data-aos-delay="150">
+        This Gift Got Lost In Transit
+      </h1>
+
+      <p class="subtitle" data-aos="fade-up" data-aos-delay="250">
+        Looks like the page you're looking for has gone missing — just like a gift without a tracking number. But don't worry, we know exactly where to find what you need.
+      </p>
+
+      <div class="cta-row" data-aos="fade-up" data-aos-delay="350">
+        <a href="index.html" class="btn-gold-custom">
+          <i class="bi bi-house-fill"></i> Return Home
+        </a>
+        <a href="services.html" class="btn-outline-white">
+          <i class="bi bi-gift"></i> Browse Services
+        </a>
+        <a href="contact.html" class="btn-outline-white">
+          <i class="bi bi-chat-dots"></i> Contact Us
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===========================
+       SECTION 2 — QUICK LINKS
+  =========================== -->
+  <section class="section-quick-links">
+    <div class="container">
+      <h3 class="section-heading" data-aos="fade-up">Popular Destinations</h3>
+
+      <div class="row g-4" data-aos="fade-up" data-aos-delay="100">
+        <!-- Home -->
+        <div class="col-sm-6 col-lg-3">
+          <a href="index.html" class="quick-link-card">
+            <span class="quick-link-icon"><i class="bi bi-house-fill"></i></span>
+            <h5>Home</h5>
+            <p>Discover our premium corporate gifting solutions</p>
+            <span class="arrow-icon"><i class="bi bi-arrow-right"></i></span>
+          </a>
+        </div>
+        <!-- Services -->
+        <div class="col-sm-6 col-lg-3">
+          <a href="services.html" class="quick-link-card">
+            <span class="quick-link-icon"><i class="bi bi-gift-fill"></i></span>
+            <h5>Services</h5>
+            <p>Explore our full range of gifting services</p>
+            <span class="arrow-icon"><i class="bi bi-arrow-right"></i></span>
+          </a>
+        </div>
+        <!-- Blog -->
+        <div class="col-sm-6 col-lg-3">
+          <a href="blog.html" class="quick-link-card">
+            <span class="quick-link-icon"><i class="bi bi-book-fill"></i></span>
+            <h5>Blog</h5>
+            <p>Read expert gifting insights and guides</p>
+            <span class="arrow-icon"><i class="bi bi-arrow-right"></i></span>
+          </a>
+        </div>
+        <!-- Contact -->
+        <div class="col-sm-6 col-lg-3">
+          <a href="contact.html" class="quick-link-card">
+            <span class="quick-link-icon"><i class="bi bi-telephone-fill"></i></span>
+            <h5>Contact</h5>
+            <p>Get in touch for a free consultation</p>
+            <span class="arrow-icon"><i class="bi bi-arrow-right"></i></span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===========================
+       SECTION 3 — FEATURED COLLECTIONS
+  =========================== -->
+  <section class="section-collections">
+    <div class="container">
+      <p class="section-eyebrow" data-aos="fade-up">
+        While you're here, explore some of our most loved collections:
+      </p>
+
+      <div class="row g-4 justify-content-center" data-aos="fade-up" data-aos-delay="100">
+        <!-- Executive Gift Sets -->
+        <div class="col-sm-6 col-lg-4">
+          <a href="services.html" class="collection-card">
+            <div class="coll-icon"><i class="bi bi-briefcase-fill"></i></div>
+            <h6>Executive Gift Sets</h6>
+            <span class="coll-link">Explore <i class="bi bi-arrow-right"></i></span>
+          </a>
+        </div>
+        <!-- Branded Merchandise -->
+        <div class="col-sm-6 col-lg-4">
+          <a href="services.html" class="collection-card">
+            <div class="coll-icon"><i class="bi bi-tag-fill"></i></div>
+            <h6>Branded Merchandise</h6>
+            <span class="coll-link">Explore <i class="bi bi-arrow-right"></i></span>
+          </a>
+        </div>
+        <!-- Festive Hampers -->
+        <div class="col-sm-6 col-lg-4">
+          <a href="services.html" class="collection-card">
+            <div class="coll-icon"><i class="bi bi-basket-fill"></i></div>
+            <h6>Festive Hampers</h6>
+            <span class="coll-link">Explore <i class="bi bi-arrow-right"></i></span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===========================
+       SECTION 4 — SEARCH + HELP
+  =========================== -->
+  <section class="section-search">
+    <div class="search-container" data-aos="fade-up">
+      <h3 class="section-heading mb-4">Or search for what you need:</h3>
+
+      <form action="contact.html" method="get" id="searchForm">
+        <div class="search-wrap">
+          <input
+            type="text"
+            class="search-input"
+            id="searchQuery"
+            name="q"
+            placeholder="Search services, blog posts, guides…"
+            aria-label="Search"
+          />
+          <button type="submit" class="search-btn" aria-label="Search">
+            <i class="bi bi-search"></i>
+          </button>
+        </div>
+      </form>
+
+      <p class="search-note">Search links to our contact page so our team can assist you directly.</p>
+
+      <p class="help-text">
+        Can't find what you're looking for? Our team is available<br />
+        <strong style="color: var(--gold-light);">Mon–Sat 9AM–6PM</strong>
+      </p>
+
+      <div class="contact-chips">
+        <a href="tel:+97141234567" class="contact-chip">
+          <i class="bi bi-telephone-fill"></i> +971 4 123 4567
+        </a>
+        <a href="mailto:hello@giftcraft.ae" class="contact-chip">
+          <i class="bi bi-envelope-fill"></i> hello@giftcraft.ae
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===========================
+       SECTION 5 — TRUST BADGES
+  =========================== -->
+  <section class="section-trust">
+    <div class="container">
+      <div class="row g-0 justify-content-center align-items-center">
+        <div class="col-12 col-md-4" data-aos="zoom-in" data-aos-delay="0">
+          <div class="trust-badge">
+            <span class="trust-number">500+</span>
+            <span class="trust-label">Corporate Clients</span>
+          </div>
+        </div>
+        <div class="col-12 col-md-4" data-aos="zoom-in" data-aos-delay="150">
+          <div class="trust-badge" style="border-left: 1px solid rgba(255,255,255,0.08); border-right: 1px solid rgba(255,255,255,0.08);">
+            <span class="trust-number">10M+</span>
+            <span class="trust-label">Gifts Delivered</span>
+          </div>
+        </div>
+        <div class="col-12 col-md-4" data-aos="zoom-in" data-aos-delay="300">
+          <div class="trust-badge">
+            <span class="trust-number">98%</span>
+            <span class="trust-label">Satisfaction Rate</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===========================
+       SECTION 6 — FOOTER STRIP
+  =========================== -->
+  <footer class="footer-strip">
+    <div class="container">
+      <div class="row align-items-center gy-3">
+        <div class="col-12 col-md-4 text-center text-md-start">
+          <p class="footer-copyright">© 2026 GiftCraft. All rights reserved.</p>
+        </div>
+        <div class="col-12 col-md-4">
+          <div class="footer-links">
+            <a href="index.html">Home</a>
+            <a href="home2.html">Home2</a>
+            <a href="about.html">About</a>
+            <a href="services.html">Service</a>
+            <a href="blog.html">Blog</a>
+            <a href="contact.html">Contact</a>
+          </div>
+        </div>
+        <div class="col-12 col-md-4">
+          <div class="social-icons">
+            <a href="#" class="social-icon-btn" aria-label="LinkedIn" title="LinkedIn">
+              <i class="bi bi-linkedin"></i>
+            </a>
+            <a href="#" class="social-icon-btn" aria-label="Twitter/X" title="Twitter/X">
+              <i class="bi bi-twitter-x"></i>
+            </a>
+            <a href="#" class="social-icon-btn" aria-label="Instagram" title="Instagram">
+              <i class="bi bi-instagram"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Bootstrap 5.3 JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <!-- AOS JS -->
+  <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+  <!-- Shared JS -->
+  <script src="assets/js/main.js"></script>
+
+  <script>
+    // AOS init
+    AOS.init({ duration: 700, once: true, offset: 60 });
+  </script>
+
+</body>
+</html>

@@ -1,0 +1,1262 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="icon" type="image/svg+xml" href="assets/favicon.svg" />
+  <title>GiftCraft – Niche Corporate Gifting | Employee Kits, Festive Hampers & Executive Gifts</title>
+  <meta name="description" content="From employee onboarding kits to festive hampers, client appreciation gifts to event merchandise — GiftCraft creates memorable corporate gifting experiences for every occasion." />
+  <meta property="og:title" content="GiftCraft – Niche Corporate Gifting Solutions" />
+  <meta property="og:description" content="Gifting that celebrates every corporate milestone. Employee kits, festive gifts, client appreciation and executive sets." />
+  <meta property="og:type" content="website" />
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700;800&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+
+  <!-- Bootstrap 5.3 -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" />
+  <!-- Bootstrap Icons -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" />
+  <!-- AOS -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" />
+
+  <!-- Shared CSS -->
+  <link rel="stylesheet" href="assets/css/style.css" />
+
+  <style>
+    /* =============================================
+       CSS VARIABLES
+    ============================================= */
+    :root {
+      --midnight-navy: #0D1B2A;
+      --royal-blue: #1B4FBF;
+      --warm-gold: #C9922A;
+      --ivory: #FAF8F3;
+      --light-grey: #F1F3F7;
+      --white: #ffffff;
+      --text-dark: #0D1B2A;
+      --text-muted: #5F6B7A;
+      --font-heading: 'Manrope', sans-serif;
+      --font-body: 'Plus Jakarta Sans', sans-serif;
+      --transition: all 0.3s ease;
+      --shadow-sm: 0 2px 10px rgba(0,0,0,0.08);
+      --shadow-md: 0 8px 30px rgba(0,0,0,0.12);
+      --shadow-lg: 0 20px 60px rgba(0,0,0,0.18);
+    }
+    [data-theme="dark"] {
+      --ivory: #1a2535;
+      --light-grey: #1e2d40;
+      --white: #162236;
+      --text-dark: #f1f3f7;
+      --text-muted: #94A3B8;
+    }
+
+    /* =============================================
+       GLOBAL
+    ============================================= */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: var(--font-body);
+      color: var(--text-dark);
+      background: var(--white);
+      line-height: 1.7;
+      overflow-x: hidden;
+    }
+    h1,h2,h3,h4,h5,h6 { font-family: var(--font-heading); font-weight: 700; }
+    img { max-width: 100%; }
+    a { text-decoration: none; color: inherit; }
+    section { overflow: hidden; }
+
+    .gradient-text {
+      background: linear-gradient(135deg, var(--warm-gold), #e8b96a);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    .section-label {
+      display: inline-block;
+      font-family: var(--font-heading);
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.18em;
+      color: var(--gold-text);
+      text-transform: uppercase;
+      margin-bottom: 1rem;
+    }
+    .section-label::before {
+      content: '';
+      display: inline-block;
+      width: 28px; height: 2px;
+      background: var(--warm-gold);
+      vertical-align: middle;
+      margin-right: 8px;
+    }
+
+    /* Buttons */
+    .btn-gold-custom {
+      background: linear-gradient(135deg, var(--warm-gold), #d4a44a);
+      color: #0D1B2A;
+      font-family: var(--font-heading);
+      font-weight: 700;
+      font-size: 0.9rem;
+      padding: 0.7rem 1.8rem;
+      border-radius: 50px;
+      border: none;
+      transition: var(--transition);
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      box-shadow: 0 4px 20px rgba(201,146,42,0.35);
+      cursor: pointer;
+    }
+    .btn-gold-custom:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 30px rgba(201,146,42,0.5);
+      color: #0D1B2A;
+    }
+    .btn-gold-custom.small { padding: 0.45rem 1.1rem; font-size: 0.82rem; }
+    .btn-outline-white {
+      background: transparent;
+      color: #fff;
+      border: 2px solid rgba(255,255,255,0.7);
+      font-family: var(--font-heading);
+      font-weight: 600;
+      font-size: 0.9rem;
+      padding: 0.68rem 1.8rem;
+      border-radius: 50px;
+      transition: var(--transition);
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .btn-outline-white:hover {
+      background: rgba(255,255,255,0.15);
+      border-color: #fff;
+      color: #fff;
+      transform: translateY(-2px);
+    }
+    .btn-primary-custom {
+      background: linear-gradient(135deg, var(--royal-blue), #2560d4);
+      color: #fff;
+      font-family: var(--font-heading);
+      font-weight: 700;
+      font-size: 0.95rem;
+      padding: 0.78rem 2rem;
+      border-radius: 50px;
+      border: none;
+      transition: var(--transition);
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      cursor: pointer;
+      width: 100%;
+      justify-content: center;
+    }
+    .btn-primary-custom:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 25px rgba(27,79,191,0.4);
+      color: #fff;
+    }
+    .btn-navy-outline {
+      background: transparent;
+      color: var(--midnight-navy);
+      border: 2px solid var(--midnight-navy);
+      font-family: var(--font-heading);
+      font-weight: 600;
+      font-size: 0.88rem;
+      padding: 0.6rem 1.5rem;
+      border-radius: 50px;
+      transition: var(--transition);
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+    }
+    .btn-navy-outline:hover {
+      background: var(--navy-surface);
+      color: #fff;
+    }
+
+    /* =============================================
+       HERO (Home 2)
+    ============================================= */
+    .hero2-section {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .hero2-overlay {
+      position: absolute;
+      inset: 0;
+      background: var(--hero-overlay);
+      z-index: 1;
+    }
+    .hero2-section .container { position: relative; z-index: 2; padding-top: 110px; padding-bottom: 70px; }
+    .hero-eyebrow {
+      display: inline-block;
+      font-family: var(--font-heading);
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.22em;
+      color: var(--warm-gold);
+      text-transform: uppercase;
+      background: rgba(201,146,42,0.12);
+      border: 1px solid rgba(201,146,42,0.35);
+      padding: 0.35rem 1rem;
+      border-radius: 50px;
+      margin-bottom: 1.4rem;
+    }
+    .hero2-title {
+      font-size: clamp(2.2rem, 5vw, 3.8rem);
+      font-weight: 800;
+      color: #fff;
+      line-height: 1.18;
+      margin-bottom: 1.4rem;
+      letter-spacing: -0.02em;
+    }
+    .hero2-subtitle {
+      font-size: 1.08rem;
+      color: rgba(255,255,255,0.78);
+      max-width: 600px;
+      margin-bottom: 2.2rem;
+      line-height: 1.8;
+    }
+    .hero2-buttons { display: flex; flex-wrap: wrap; gap: 1rem; margin-bottom: 2.5rem; }
+    .category-pills { display: flex; flex-wrap: wrap; gap: 0.75rem; }
+    .category-pill {
+      background: rgba(255,255,255,0.1);
+      border: 1px solid rgba(255,255,255,0.25);
+      backdrop-filter: blur(10px);
+      border-radius: 50px;
+      padding: 0.55rem 1.2rem;
+      color: #fff;
+      font-size: 0.88rem;
+      font-weight: 600;
+      font-family: var(--font-heading);
+      display: flex;
+      align-items: center;
+      gap: 7px;
+      cursor: pointer;
+      transition: var(--transition);
+    }
+    .category-pill:hover {
+      background: rgba(201,146,42,0.2);
+      border-color: var(--warm-gold);
+      color: var(--warm-gold);
+    }
+    .hero2-scroll {
+      position: absolute;
+      bottom: 2.5rem;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 2;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 6px;
+      color: rgba(255,255,255,0.6);
+      font-size: 0.75rem;
+      font-family: var(--font-heading);
+      letter-spacing: 0.1em;
+    }
+    .hero2-scroll .arrow {
+      width: 24px; height: 36px;
+      border: 2px solid rgba(255,255,255,0.4);
+      border-radius: 12px;
+      display: flex;
+      justify-content: center;
+      padding-top: 6px;
+    }
+    .hero2-scroll .arrow::after {
+      content: '';
+      width: 4px; height: 8px;
+      background: var(--warm-gold);
+      border-radius: 2px;
+      animation: scrollBounce 1.6s ease infinite;
+    }
+    @keyframes scrollBounce {
+      0%,100% { transform: translateY(0); opacity: 1; }
+      50% { transform: translateY(8px); opacity: 0.3; }
+    }
+
+    /* =============================================
+       SECTION 2 – EMPLOYEE WELCOME KITS
+    ============================================= */
+    .section-welcome-kits { background: var(--ivory); padding: 6rem 0; }
+    .section-welcome-kits h2 {
+      font-size: clamp(1.8rem, 3.5vw, 2.7rem);
+      color: var(--midnight-navy);
+      margin-bottom: 1rem;
+    }
+    .section-welcome-kits h2 span { color: var(--royal-text); }
+    .section-welcome-kits img {
+      border-radius: 20px;
+      width: 100%;
+      aspect-ratio: 4/5;
+      object-fit: cover;
+      box-shadow: var(--shadow-md);
+    }
+    .kit-component {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      padding: 1rem 1.2rem;
+      background: var(--white);
+      border-radius: 14px;
+      border: 1px solid rgba(0,0,0,0.07);
+      transition: var(--transition);
+      margin-bottom: 0.8rem;
+    }
+    .kit-component:hover {
+      border-color: var(--warm-gold);
+      box-shadow: 0 4px 16px rgba(201,146,42,0.12);
+    }
+    .kit-icon {
+      width: 44px; height: 44px;
+      background: rgba(27,79,191,0.1);
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.3rem;
+      flex-shrink: 0;
+    }
+    .kit-component h5 { font-size: 0.95rem; font-weight: 700; color: var(--midnight-navy); margin: 0 0 0.15rem; }
+    .kit-component p { font-size: 0.82rem; color: var(--text-muted); margin: 0; }
+
+    /* Kit tier cards */
+    .kit-tier-card {
+      background: var(--white);
+      border: 2px solid rgba(0,0,0,0.07);
+      border-radius: 20px;
+      padding: 1.8rem 1.4rem;
+      text-align: center;
+      transition: var(--transition);
+      height: 100%;
+    }
+    .kit-tier-card:hover, .kit-tier-card.featured {
+      border-color: var(--warm-gold);
+      box-shadow: 0 8px 30px rgba(201,146,42,0.18);
+      transform: translateY(-4px);
+    }
+    .kit-tier-card.featured { background: linear-gradient(135deg, var(--navy-surface), #0a2a5e); }
+    .kit-tier-card.featured h4, .kit-tier-card.featured .kit-tier-price, .kit-tier-card.featured p { color: #fff; }
+    .kit-tier-card.featured .kit-tier-sub { color: rgba(255,255,255,0.6) !important; }
+    .kit-tier-label {
+      display: inline-block;
+      font-size: 0.7rem;
+      font-weight: 700;
+      font-family: var(--font-heading);
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      background: rgba(201,146,42,0.15);
+      color: var(--gold-text);
+      padding: 0.2rem 0.7rem;
+      border-radius: 50px;
+      margin-bottom: 1rem;
+    }
+    .kit-tier-card h4 { font-size: 1.05rem; font-weight: 800; color: var(--midnight-navy); margin-bottom: 0.4rem; }
+    .kit-tier-price {
+      font-family: var(--font-heading);
+      font-size: 1.7rem;
+      font-weight: 800;
+      color: var(--royal-text);
+      margin-bottom: 0.3rem;
+    }
+    .kit-tier-sub { font-size: 0.8rem; color: var(--text-muted); margin-bottom: 1.2rem; }
+
+    /* =============================================
+       SECTION 3 – FESTIVE GIFTS
+    ============================================= */
+    .section-festive { background: var(--light-grey); padding: 6rem 0; }
+    .section-festive h2 {
+      font-size: clamp(1.8rem, 3.5vw, 2.7rem);
+      color: var(--midnight-navy);
+    }
+    .section-festive h2 span { color: var(--royal-text); }
+    .occasion-card {
+      background: var(--white);
+      border-radius: 20px;
+      overflow: hidden;
+      box-shadow: var(--shadow-sm);
+      border: 1px solid rgba(0,0,0,0.06);
+      transition: var(--transition);
+      height: 100%;
+    }
+    .occasion-card:hover { transform: translateY(-6px); box-shadow: var(--shadow-md); }
+    .occasion-card-img {
+      width: 100%;
+      height: 220px;
+      object-fit: cover;
+      transition: transform 0.5s;
+    }
+    .occasion-card:hover .occasion-card-img { transform: scale(1.05); }
+    .occasion-card-img-wrap { overflow: hidden; position: relative; }
+    .deadline-chip {
+      position: absolute;
+      top: 1rem; right: 1rem;
+      background: rgba(13,27,42,0.85);
+      color: var(--warm-gold-light);
+      font-size: 0.72rem;
+      font-weight: 700;
+      font-family: var(--font-heading);
+      padding: 0.3rem 0.75rem;
+      border-radius: 50px;
+      border: 1px solid rgba(201,146,42,0.35);
+      backdrop-filter: blur(6px);
+    }
+    .occasion-card-body { padding: 1.5rem; }
+    .occasion-card-body h4 { font-size: 1.08rem; font-weight: 700; color: var(--midnight-navy); margin-bottom: 0.5rem; }
+    .occasion-card-body p { font-size: 0.86rem; color: var(--text-muted); margin-bottom: 0.9rem; line-height: 1.6; }
+    .min-order-badge {
+      display: inline-block;
+      background: rgba(27,79,191,0.1);
+      color: var(--royal-text);
+      font-size: 0.75rem;
+      font-weight: 700;
+      font-family: var(--font-heading);
+      padding: 0.25rem 0.7rem;
+      border-radius: 50px;
+    }
+
+    /* =============================================
+       SECTION 4 – CLIENT APPRECIATION
+    ============================================= */
+    .section-client-appreciation { background: var(--white); padding: 6rem 0; }
+    .section-client-appreciation h2 {
+      font-size: clamp(1.8rem, 3.5vw, 2.7rem);
+      color: var(--midnight-navy);
+    }
+    .section-client-appreciation h2 span { color: var(--royal-text); }
+    .appreciation-img {
+      border-radius: 20px;
+      width: 100%;
+      object-fit: cover;
+      aspect-ratio: 16/10;
+      box-shadow: var(--shadow-md);
+    }
+    .appreciation-text h3 {
+      font-size: 1.5rem;
+      color: var(--midnight-navy);
+      margin-bottom: 1rem;
+    }
+    .appreciation-text p { font-size: 0.95rem; color: var(--text-muted); line-height: 1.8; margin-bottom: 1.5rem; }
+    .stats-strip {
+      background: linear-gradient(135deg, var(--navy-surface), #0a2a5e);
+      border-radius: 20px;
+      padding: 2.5rem;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-around;
+      gap: 1.5rem;
+      margin-top: 4rem;
+    }
+    .stats-strip-item { text-align: center; }
+    .stats-strip-num {
+      font-family: var(--font-heading);
+      font-size: 2rem;
+      font-weight: 800;
+      color: var(--warm-gold);
+      display: block;
+      line-height: 1;
+      margin-bottom: 0.4rem;
+    }
+    .stats-strip-label { color: rgba(255,255,255,0.65); font-size: 0.84rem; font-weight: 500; }
+
+    /* =============================================
+       SECTION 5 – EVENT & EXECUTIVE (Navy)
+    ============================================= */
+    .section-event-executive { background: var(--navy-surface); padding: 6rem 0; }
+    .section-event-executive h2 {
+      font-size: clamp(1.8rem, 3.5vw, 2.7rem);
+      color: #fff;
+      text-align: center;
+      margin-bottom: 1rem;
+    }
+    .section-event-executive h2 span { }
+    .event-exec-card {
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 24px;
+      overflow: hidden;
+      transition: var(--transition);
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+    }
+    .event-exec-card:hover {
+      border-color: rgba(201,146,42,0.4);
+      box-shadow: 0 10px 40px rgba(0,0,0,0.3);
+    }
+    .event-exec-img {
+      width: 100%;
+      height: 260px;
+      object-fit: cover;
+    }
+    .event-exec-body {
+      padding: 2rem;
+      display: flex;
+      flex-direction: column;
+      flex: 1;
+    }
+    .event-exec-body .sub-label {
+      font-family: var(--font-heading);
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.15em;
+      color: var(--warm-gold);
+      text-transform: uppercase;
+      display: block;
+      margin-bottom: 0.6rem;
+    }
+    .event-exec-body h3 { font-size: 1.3rem; color: #fff; margin-bottom: 0.8rem; }
+    .event-exec-body p { font-size: 0.88rem; color: rgba(255,255,255,0.65); line-height: 1.7; margin-bottom: 1rem; }
+    .use-case-list { list-style: none; padding: 0; margin: 0 0 1.5rem; }
+    .use-case-list li {
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+      color: rgba(255,255,255,0.75);
+      font-size: 0.88rem;
+      margin-bottom: 0.5rem;
+    }
+    .use-case-list li::before {
+      content: '';
+      width: 6px; height: 6px;
+      background: var(--warm-gold);
+      border-radius: 50%;
+      flex-shrink: 0;
+    }
+    .exec-item-list { list-style: none; padding: 0; margin: 0 0 0.8rem; }
+    .exec-item-list li {
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+      color: rgba(255,255,255,0.75);
+      font-size: 0.88rem;
+      margin-bottom: 0.5rem;
+      padding-bottom: 0.5rem;
+      border-bottom: 1px solid rgba(255,255,255,0.07);
+    }
+    .exec-item-list li:last-child { border-bottom: none; }
+    .exec-item-list li i { color: var(--warm-gold); font-size: 0.9rem; }
+    .exec-price-tag {
+      display: inline-block;
+      background: rgba(201,146,42,0.15);
+      border: 1px solid rgba(201,146,42,0.4);
+      color: var(--warm-gold-light);
+      font-family: var(--font-heading);
+      font-weight: 700;
+      font-size: 0.88rem;
+      padding: 0.3rem 0.9rem;
+      border-radius: 50px;
+      margin-bottom: 1.2rem;
+    }
+    .btn-gold-outline {
+      background: transparent;
+      color: var(--warm-gold);
+      border: 2px solid var(--warm-gold);
+      font-family: var(--font-heading);
+      font-weight: 600;
+      font-size: 0.88rem;
+      padding: 0.6rem 1.5rem;
+      border-radius: 50px;
+      transition: var(--transition);
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+    }
+    .btn-gold-outline:hover {
+      background: var(--warm-gold);
+      color: #0D1B2A;
+    }
+    .event-exec-body > .btn-gold-outline {
+      margin-top: auto;
+      align-self: flex-start;
+    }
+
+    /* =============================================
+       SECTION 6 – CTA + ENQUIRY (Ivory)
+    ============================================= */
+    .section-enquiry { background: var(--ivory); padding: 6rem 0; }
+    .section-enquiry h2 {
+      font-size: clamp(1.8rem, 3.5vw, 2.5rem);
+      color: var(--midnight-navy);
+      margin-bottom: 1.5rem;
+    }
+    .section-enquiry h2 span { color: var(--royal-text); }
+    .benefits-list { list-style: none; padding: 0; margin: 0 0 2rem; }
+    .benefits-list li {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.8rem;
+      margin-bottom: 1rem;
+      font-size: 0.95rem;
+      color: var(--text-dark);
+      line-height: 1.5;
+    }
+    .benefits-list li .check-icon {
+      width: 24px; height: 24px;
+      background: rgba(27,79,191,0.1);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--royal-text);
+      font-size: 0.75rem;
+      flex-shrink: 0;
+      margin-top: 2px;
+    }
+    .enquiry-contact-item {
+      display: flex;
+      align-items: center;
+      gap: 0.8rem;
+      margin-bottom: 0.9rem;
+    }
+    .enquiry-contact-item .icon {
+      width: 40px; height: 40px;
+      background: var(--navy-surface);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--warm-gold);
+      font-size: 1rem;
+      flex-shrink: 0;
+    }
+    .enquiry-contact-item a { color: var(--royal-text); font-weight: 600; }
+    .enquiry-contact-item span { color: var(--text-muted); font-size: 0.85rem; }
+
+    /* Enquiry form */
+    .enquiry-form-wrap {
+      background: var(--white);
+      border-radius: 24px;
+      padding: 2.5rem;
+      box-shadow: var(--shadow-md);
+      border: 1px solid rgba(0,0,0,0.06);
+    }
+    .enquiry-form-wrap h4 {
+      font-size: 1.2rem;
+      font-weight: 800;
+      color: var(--midnight-navy);
+      margin-bottom: 1.5rem;
+    }
+    .form-label-custom {
+      font-family: var(--font-heading);
+      font-size: 0.82rem;
+      font-weight: 700;
+      color: var(--midnight-navy);
+      margin-bottom: 0.4rem;
+      display: block;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+    }
+    .form-control-custom {
+      width: 100%;
+      background: var(--light-grey);
+      border: 1.5px solid transparent;
+      border-radius: 12px;
+      padding: 0.7rem 1rem;
+      font-family: var(--font-body);
+      font-size: 0.92rem;
+      color: var(--text-dark);
+      outline: none;
+      transition: border-color 0.2s, box-shadow 0.2s;
+    }
+    .form-control-custom:focus {
+      border-color: var(--royal-blue);
+      box-shadow: 0 0 0 3px rgba(27,79,191,0.12);
+      background: var(--white);
+    }
+    .form-group-custom { margin-bottom: 1.2rem; }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      .hero2-title { font-size: 2rem; overflow-wrap: anywhere; }
+      .stats-strip { flex-direction: column; align-items: center; }
+    }
+    @media (max-width: 480px) {
+      .enquiry-form-wrap { padding: 1.25rem; }
+    }
+    @media (max-width: 360px) {
+      .enquiry-form-wrap { padding: 1rem; }
+    }
+  </style>
+</head>
+<body style="--hero-bg-image: url('https://images.unsplash.com/photo-1513151233558-d860c5398176?w=1800&q=80');">
+
+<nav class="navbar-giftcraft navbar-light-bg" role="navigation" aria-label="Main navigation">
+  <div class="container">
+    <div class="d-flex align-items-center justify-content-between w-100">
+      <a href="index.html" class="navbar-brand-logo text-decoration-none"><img src="assets/logo.svg" alt="" class="brand-mark" />Gift<span>Craft</span></a>
+      <div class="d-none d-lg-flex align-items-center gap-1">
+        <a class="nav-link-custom" href="index.html">Home</a>
+        <a class="nav-link-custom active" href="home2.html">Home2</a>
+        <a class="nav-link-custom" href="about.html">About</a>
+        <a class="nav-link-custom" href="services.html">Service</a>
+        <a class="nav-link-custom" href="blog.html">Blog</a>
+        <a class="nav-link-custom" href="contact.html">Contact</a>
+      </div>
+      <div class="d-none d-lg-flex align-items-center gap-2">
+        <button class="btn-rtl-toggle" aria-label="Toggle RTL"><span class="rtl-label">RTL</span></button>
+        <button class="btn-theme-toggle" aria-label="Toggle dark mode"><i class="bi bi-moon-fill"></i></button>
+        <a href="contact.html" class="btn-gold-custom" style="padding:10px 22px;font-size:0.8125rem;">Get a Quote</a>
+      </div>
+      <button class="mobile-menu-toggle navbar-toggler-custom d-lg-none" aria-label="Open menu">
+        <i class="bi bi-list fs-4"></i>
+      </button>
+    </div>
+  </div>
+</nav>
+
+<div class="mobile-overlay"></div>
+<div class="mobile-menu">
+  <div class="d-flex align-items-center justify-content-between mb-4">
+    <span class="footer-brand" style="font-size:1.25rem;"><img src="assets/logo.svg" alt="" class="brand-mark" />Gift<span>Craft</span></span>
+    <button class="mobile-menu-close" aria-label="Close menu"><i class="bi bi-x-lg"></i></button>
+  </div>
+  <nav>
+    <a href="index.html" class="footer-link" style="font-size:1rem;padding:8px 0;display:block;">Home</a>
+    <a href="home2.html" class="footer-link" style="font-size:1rem;padding:8px 0;display:block;color:var(--warm-gold);">Home2</a>
+    <a href="about.html" class="footer-link" style="font-size:1rem;padding:8px 0;display:block;">About</a>
+    <a href="services.html" class="footer-link" style="font-size:1rem;padding:8px 0;display:block;">Service</a>
+    <a href="blog.html" class="footer-link" style="font-size:1rem;padding:8px 0;display:block;">Blog</a>
+    <a href="contact.html" class="footer-link" style="font-size:1rem;padding:8px 0;display:block;">Contact</a>
+  </nav>
+  <div class="mt-4 d-flex gap-2">
+    <button class="btn-rtl-toggle" aria-label="Toggle RTL"><span class="rtl-label">RTL</span></button>
+    <button class="btn-theme-toggle"><i class="bi bi-moon-fill"></i></button>
+  </div>
+  <a href="contact.html" class="btn-gold-custom mt-4 d-block text-center">Get a Quote</a>
+</div>
+
+<!-- ==========================================
+     SECTION 1 – HERO (Home 2)
+=========================================== -->
+<section class="hero2-section" id="hero">
+  <div class="hero2-overlay"></div>
+  <div class="container">
+    <div class="row justify-content-center text-center">
+      <div class="col-lg-9" data-aos="fade-up" data-aos-duration="900">
+        <span class="hero-eyebrow">Niche Corporate Gifting Solutions</span>
+        <h1 class="hero2-title">Gifting That <span class="gradient-text">Celebrates</span><br>Every Corporate Milestone</h1>
+        <p class="hero2-subtitle mx-auto">From employee onboarding kits to festive hampers, client appreciation gifts to event merchandise — GiftCraft creates memorable experiences for every occasion.</p>
+        <div class="hero2-buttons justify-content-center">
+          <a href="services.html" class="btn-gold-custom">See Our Solutions <i class="bi bi-arrow-right"></i></a>
+          <a href="contact.html" class="btn-outline-white">Talk To An Expert <i class="bi bi-headset"></i></a>
+        </div>
+        <div class="category-pills justify-content-center">
+          <a href="#welcome-kits" class="category-pill"><i class="bi bi-gift-fill"></i> Employee Kits</a>
+          <a href="#festive-gifts" class="category-pill"><i class="bi bi-stars"></i> Festive Gifts</a>
+          <a href="#client-appreciation" class="category-pill"><i class="bi bi-hand-thumbs-up-fill"></i> Client Appreciation</a>
+          <a href="#event-executive" class="category-pill"><i class="bi bi-trophy-fill"></i> Executive Sets</a>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="hero2-scroll">
+    <div class="arrow"></div>
+    <span>Scroll</span>
+  </div>
+</section>
+
+<!-- ==========================================
+     SECTION 2 – EMPLOYEE WELCOME KITS
+=========================================== -->
+<section class="section-welcome-kits" id="welcome-kits">
+  <div class="container">
+    <div class="text-center mb-5" data-aos="fade-up">
+      <span class="section-label">Employee Experience</span>
+      <h2>Premium <span>Employee Welcome Kits</span> That Inspire From Day One</h2>
+    </div>
+
+    <div class="row align-items-center g-5 mb-5">
+      <!-- Left image -->
+      <div class="col-lg-5" data-aos="fade-right">
+        <img
+          src="https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=800&q=80"
+          alt="Employee onboarding desk setup"
+        />
+      </div>
+      <!-- Right content -->
+      <div class="col-lg-7" data-aos="fade-left">
+        <p class="mb-4" style="font-size:1rem;color:var(--text-muted);line-height:1.8">
+          First impressions define company culture. Our curated employee welcome kits are designed to make every new hire feel valued and excited from their very first day. Each kit is fully customisable with your brand identity and can be delivered directly to home or office.
+        </p>
+
+        <div class="kit-component">
+          <div class="kit-icon"><i class="bi bi-laptop-fill"></i></div>
+          <div>
+            <h5>Branded Tech Essentials</h5>
+            <p>Laptop stand, wireless mouse, keyboard and USB hub in branded packaging</p>
+          </div>
+        </div>
+        <div class="kit-component">
+          <div class="kit-icon"><i class="bi bi-bag-fill"></i></div>
+          <div>
+            <h5>Custom Apparel & Merchandise</h5>
+            <p>Embroidered polo shirt, branded cap and premium tote bag</p>
+          </div>
+        </div>
+        <div class="kit-component">
+          <div class="kit-icon"><i class="bi bi-journal-text"></i></div>
+          <div>
+            <h5>Stationery & Office Set</h5>
+            <p>Hardbound notebook, premium pen set and leather desk organiser</p>
+          </div>
+        </div>
+        <div class="kit-component">
+          <div class="kit-icon"><i class="bi bi-gift-fill"></i></div>
+          <div>
+            <h5>Personal Welcome Note & Chocolates</h5>
+            <p>Handwritten branded welcome card with artisan chocolate selection</p>
+          </div>
+        </div>
+
+        <a href="contact.html" class="btn-gold-custom mt-3">Build Your Welcome Kit <i class="bi bi-arrow-right"></i></a>
+      </div>
+    </div>
+
+    <!-- Kit tier cards -->
+    <div class="row g-4" data-aos="fade-up" data-aos-delay="100">
+      <div class="col-md-4">
+        <div class="kit-tier-card">
+          <span class="kit-tier-label">Starter</span>
+          <h4>Starter Kit</h4>
+          <div class="kit-tier-price">AED 150</div>
+          <div class="kit-tier-sub">per kit | min. 20 units</div>
+          <p style="font-size:0.85rem;color:var(--text-muted);margin-bottom:1.2rem">Notebook, pen, branded tote and welcome card — the perfect introductory kit.</p>
+          <a href="contact.html" class="btn-navy-outline w-100 justify-content-center">Get Quote</a>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="kit-tier-card featured">
+          <span class="kit-tier-label">Most Popular</span>
+          <h4>Professional Kit</h4>
+          <div class="kit-tier-price" style="color:var(--warm-gold)">AED 350</div>
+          <div class="kit-tier-sub">per kit | min. 20 units</div>
+          <p style="font-size:0.85rem;margin-bottom:1.2rem">Full stationery set, branded apparel, tech accessory and artisan chocolate box.</p>
+          <a href="contact.html" class="btn-gold-custom w-100 justify-content-center">Get Quote</a>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="kit-tier-card">
+          <span class="kit-tier-label">Premium</span>
+          <h4>Executive Kit</h4>
+          <div class="kit-tier-price">AED 650</div>
+          <div class="kit-tier-sub">per kit | min. 10 units</div>
+          <p style="font-size:0.85rem;color:var(--text-muted);margin-bottom:1.2rem">Full tech bundle, premium apparel, luxury stationery and curated gourmet treats.</p>
+          <a href="contact.html" class="btn-navy-outline w-100 justify-content-center">Get Quote</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ==========================================
+     SECTION 3 – FESTIVE GIFTS
+=========================================== -->
+<section class="section-festive" id="festive-gifts">
+  <div class="container">
+    <div class="text-center mb-5" data-aos="fade-up">
+      <span class="section-label">Festive Collections</span>
+      <h2>Celebrate Every <span>Festive Season</span> With Thoughtful Gifting</h2>
+    </div>
+
+    <div class="row g-4">
+      <!-- Eid Al Fitr -->
+      <div class="col-md-6 col-lg-3" data-aos="fade-up" data-aos-delay="0">
+        <div class="occasion-card">
+          <div class="occasion-card-img-wrap">
+            <img src="https://images.unsplash.com/photo-1607082348824-0a96f2a4b9da?w=600&q=80" alt="Eid Al Fitr gifts" class="occasion-card-img" />
+            <span class="deadline-chip">Order by Mar 2026</span>
+          </div>
+          <div class="occasion-card-body">
+            <h4><i class="bi bi-moon-stars-fill"></i> Eid Al Fitr</h4>
+            <p>Gold-accented date boxes, prayer beads and luxury oud fragrance sets for the most meaningful occasion</p>
+            <span class="min-order-badge">Min. 50 units</span>
+          </div>
+        </div>
+      </div>
+      <!-- Christmas -->
+      <div class="col-md-6 col-lg-3" data-aos="fade-up" data-aos-delay="80">
+        <div class="occasion-card">
+          <div class="occasion-card-img-wrap">
+            <img src="https://images.unsplash.com/photo-1482517967863-00e15c9b44be?w=600&q=80" alt="Christmas corporate gifts" class="occasion-card-img" />
+            <span class="deadline-chip">Order by Nov 2026</span>
+          </div>
+          <div class="occasion-card-body">
+            <h4><i class="bi bi-tree-fill"></i> Christmas</h4>
+            <p>Premium hampers with gourmet treats, wines and festive accessories for the holiday season</p>
+            <span class="min-order-badge">Min. 50 units</span>
+          </div>
+        </div>
+      </div>
+      <!-- Diwali -->
+      <div class="col-md-6 col-lg-3" data-aos="fade-up" data-aos-delay="160">
+        <div class="occasion-card">
+          <div class="occasion-card-img-wrap">
+            <img src="https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?w=600&q=80" alt="Diwali corporate gifts" class="occasion-card-img" />
+            <span class="deadline-chip">Order by Sep 2026</span>
+          </div>
+          <div class="occasion-card-body">
+            <h4><i class="bi bi-lamp-fill"></i> Diwali</h4>
+            <p>Artisan sweets, brass diyas and eco-luxury gift boxes celebrating the festival of lights</p>
+            <span class="min-order-badge">Min. 50 units</span>
+          </div>
+        </div>
+      </div>
+      <!-- New Year -->
+      <div class="col-md-6 col-lg-3" data-aos="fade-up" data-aos-delay="240">
+        <div class="occasion-card">
+          <div class="occasion-card-img-wrap">
+            <img src="https://images.unsplash.com/photo-1598300056393-4aac492f4344?w=600&q=80" alt="New Year corporate gifts" class="occasion-card-img" />
+            <span class="deadline-chip">Order by Dec 2026</span>
+          </div>
+          <div class="occasion-card-body">
+            <h4><i class="bi bi-cup-straw"></i> New Year</h4>
+            <p>Corporate planners, premium notebooks and celebration kits to ring in the new year</p>
+            <span class="min-order-badge">Min. 50 units</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ==========================================
+     SECTION 4 – CLIENT APPRECIATION
+=========================================== -->
+<section class="section-client-appreciation" id="client-appreciation">
+  <div class="container">
+    <div class="text-center mb-5" data-aos="fade-up">
+      <span class="section-label">Client Delight</span>
+      <h2>Make Every Client Feel <span>Truly Valued</span></h2>
+    </div>
+
+    <!-- Row A: Image | Text -->
+    <div class="row align-items-center g-5 mb-5">
+      <div class="col-lg-6" data-aos="fade-right">
+        <img
+          src="https://images.unsplash.com/photo-1566073771259-6a8506099945?w=800&q=80"
+          alt="Luxury client gift hampers"
+          class="appreciation-img"
+        />
+      </div>
+      <div class="col-lg-6 appreciation-text" data-aos="fade-left">
+        <span class="section-label">Luxury Hampers</span>
+        <h3>Luxury Client Gift Hampers</h3>
+        <p>Our curated high-end hampers are designed to leave a lasting impression on your most valued clients. Each hamper is thoughtfully assembled with premium products, custom-branded packaging and a personalised handwritten note — perfect for welcoming new clients, celebrating renewals and marking special milestones in your business relationship.</p>
+        <ul class="benefits-list">
+          <li><span class="check-icon"><i class="bi bi-check-lg"></i></span>Hand-picked premium gourmet selections and lifestyle products</li>
+          <li><span class="check-icon"><i class="bi bi-check-lg"></i></span>Rigid gift boxes with foil-stamped branding and satin ribbon</li>
+          <li><span class="check-icon"><i class="bi bi-check-lg"></i></span>Personalised message cards printed in up to 3 languages</li>
+        </ul>
+        <a href="contact.html" class="btn-primary-custom" style="width:auto;justify-content:flex-start">Get a Hamper Quote <i class="bi bi-arrow-right"></i></a>
+      </div>
+    </div>
+
+    <!-- Row B: Text | Image -->
+    <div class="row align-items-center g-5">
+      <div class="col-lg-6 order-lg-2" data-aos="fade-left">
+        <img
+          src="https://images.unsplash.com/photo-1455390582262-044cdead277a?w=800&q=80"
+          alt="Branded lifestyle accessories"
+          class="appreciation-img"
+        />
+      </div>
+      <div class="col-lg-6 order-lg-1 appreciation-text" data-aos="fade-right">
+        <span class="section-label">Lifestyle Gifts</span>
+        <h3>Branded Lifestyle Accessories</h3>
+        <p>Elevate your client relationships with premium branded lifestyle accessories that are used daily and act as a constant reminder of your partnership. From precision-engraved pen sets to hand-stitched leather wallets and elegant watch collections — each piece is a statement of quality and appreciation.</p>
+        <ul class="benefits-list">
+          <li><span class="check-icon"><i class="bi bi-check-lg"></i></span>Client name and company logo engraved with laser precision</li>
+          <li><span class="check-icon"><i class="bi bi-check-lg"></i></span>Premium pens, leather wallets, watches and accessories</li>
+          <li><span class="check-icon"><i class="bi bi-check-lg"></i></span>Velvet-lined presentation boxes with custom certificates</li>
+        </ul>
+        <a href="contact.html" class="btn-primary-custom" style="width:auto;justify-content:flex-start">Explore Lifestyle Gifts <i class="bi bi-arrow-right"></i></a>
+      </div>
+    </div>
+
+    <!-- Stats strip -->
+    <div class="stats-strip" data-aos="fade-up" data-aos-delay="100">
+      <div class="stats-strip-item">
+        <span class="stats-strip-num">87%</span>
+        <span class="stats-strip-label">Average Reorder Rate</span>
+      </div>
+      <div class="stats-strip-item">
+        <span class="stats-strip-num">+34%</span>
+        <span class="stats-strip-label">Client Retention Increase</span>
+      </div>
+      <div class="stats-strip-item">
+        <span class="stats-strip-num">72</span>
+        <span class="stats-strip-label">NPS Score</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ==========================================
+     SECTION 5 – EVENT MERCHANDISE + EXECUTIVE GIFTS
+=========================================== -->
+<section class="section-event-executive" id="event-executive">
+  <div class="container">
+    <div class="text-center mb-5" data-aos="fade-up">
+      <span class="section-label" style="color:var(--warm-gold)">Event & Executive</span>
+      <h2>From Grand Events To <span class="gradient-text">Boardroom Excellence</span></h2>
+    </div>
+
+    <div class="row g-4">
+      <!-- Event Merchandise -->
+      <div class="col-lg-6" data-aos="fade-right">
+        <div class="event-exec-card">
+          <img
+            src="https://images.unsplash.com/photo-1492684223066-81342ee5ff30?w=600&q=80"
+            alt="Event merchandise"
+            class="event-exec-img"
+          />
+          <div class="event-exec-body">
+            <span class="sub-label">Event Merchandise</span>
+            <h3>Make Your Events Unforgettable</h3>
+            <p>Branded merchandise and bespoke event gifts that keep your corporate events memorable long after the last guest leaves. From grand launches to intimate team events, we handle everything.</p>
+            <ul class="use-case-list">
+              <li>Product launches & brand activations</li>
+              <li>Corporate conferences & summits</li>
+              <li>Award ceremonies & galas</li>
+              <li>Team building & company retreats</li>
+            </ul>
+            <a href="contact.html" class="btn-gold-outline">Plan Event Gifting <i class="bi bi-arrow-right"></i></a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Executive Gift Sets -->
+      <div class="col-lg-6" data-aos="fade-left">
+        <div class="event-exec-card">
+          <img
+            src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=600&q=80"
+            alt="Executive gift sets"
+            class="event-exec-img"
+          />
+          <div class="event-exec-body">
+            <span class="sub-label">Executive Gift Sets</span>
+            <h3>Gifts Worthy Of The Corner Office</h3>
+            <p>Curated exclusively for senior executives and VIP recipients, our executive gift sets combine artisan craftsmanship with personalised luxury that reflects the stature of the relationship.</p>
+            <ul class="exec-item-list">
+              <li><i class="bi bi-gem"></i>Handmade leather briefcase accessories</li>
+              <li><i class="bi bi-award"></i>Crystal recognition awards</li>
+              <li><i class="bi bi-pen-fill"></i>Premium collector pen collections</li>
+              <li><i class="bi bi-stars"></i>Personalised whisky & spirits sets</li>
+            </ul>
+            <span class="exec-price-tag">From AED 500/set</span>
+            <a href="contact.html" class="btn-gold-outline">View Executive Range <i class="bi bi-arrow-right"></i></a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ==========================================
+     SECTION 6 – CTA + QUICK ENQUIRY
+=========================================== -->
+<section class="section-enquiry" id="enquiry">
+  <div class="container">
+    <div class="row g-5 align-items-start">
+      <!-- Left content -->
+      <div class="col-lg-5" data-aos="fade-right">
+        <span class="section-label">Start Today</span>
+        <h2>Start Your <span>Corporate Gifting Journey</span> Today</h2>
+        <p class="mb-4" style="font-size:0.95rem;color:var(--text-muted);line-height:1.8">
+          Our gifting specialists are ready to help you design the perfect corporate gifting programme. Whether you need 10 executive sets or 10,000 branded items, we deliver quality without compromise.
+        </p>
+        <ul class="benefits-list">
+          <li><span class="check-icon"><i class="bi bi-check-lg"></i></span>Free 30-minute consultation with a gifting specialist</li>
+          <li><span class="check-icon"><i class="bi bi-check-lg"></i></span>No minimum order requirements for premium collections</li>
+          <li><span class="check-icon"><i class="bi bi-check-lg"></i></span>Custom quotes delivered within 2 business hours</li>
+          <li><span class="check-icon"><i class="bi bi-check-lg"></i></span>100% satisfaction guarantee on all orders</li>
+          <li><span class="check-icon"><i class="bi bi-check-lg"></i></span>Dedicated account manager from brief to delivery</li>
+        </ul>
+        <div class="mt-4">
+          <div class="enquiry-contact-item">
+            <div class="icon"><i class="bi bi-telephone-fill"></i></div>
+            <div>
+              <span class="d-block" style="font-size:0.78rem;color:var(--text-muted);margin-bottom:2px">Call Us</span>
+              <a href="tel:+97141234567">+971 4 123 4567</a>
+            </div>
+          </div>
+          <div class="enquiry-contact-item">
+            <div class="icon"><i class="bi bi-envelope-fill"></i></div>
+            <div>
+              <span class="d-block" style="font-size:0.78rem;color:var(--text-muted);margin-bottom:2px">Email Us</span>
+              <a href="mailto:hello@giftcraft.ae">hello@giftcraft.ae</a>
+            </div>
+          </div>
+          <div class="enquiry-contact-item">
+            <div class="icon"><i class="bi bi-geo-alt-fill"></i></div>
+            <div>
+              <span class="d-block" style="font-size:0.78rem;color:var(--text-muted);margin-bottom:2px">Visit Us</span>
+              <span>1204 Business Bay, Dubai, UAE</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Right: Enquiry form -->
+      <div class="col-lg-7" data-aos="fade-left">
+        <div class="enquiry-form-wrap">
+          <h4>Quick Gifting Enquiry</h4>
+          <form onsubmit="handleEnquirySubmit(event)">
+            <div class="row g-3">
+              <div class="col-md-6">
+                <div class="form-group-custom">
+                  <label class="form-label-custom">Company Name</label>
+                  <input type="text" class="form-control-custom" placeholder="e.g. Emirates Group" required />
+                </div>
+              </div>
+              <div class="col-md-6">
+                <div class="form-group-custom">
+                  <label class="form-label-custom">Your Name</label>
+                  <input type="text" class="form-control-custom" placeholder="e.g. Sarah Al-Mansouri" required />
+                </div>
+              </div>
+              <div class="col-12">
+                <div class="form-group-custom">
+                  <label class="form-label-custom">Occasion / Category</label>
+                  <select class="form-control-custom" required>
+                    <option value="" disabled selected>Select occasion or category</option>
+                    <option value="employee-kit">Employee Kit</option>
+                    <option value="festive-gift">Festive Gift</option>
+                    <option value="client-appreciation">Client Appreciation</option>
+                    <option value="event-merchandise">Event Merchandise</option>
+                    <option value="executive-gift">Executive Gift</option>
+                    <option value="other">Other</option>
+                  </select>
+                </div>
+              </div>
+              <div class="col-md-6">
+                <div class="form-group-custom">
+                  <label class="form-label-custom">Estimated Quantity</label>
+                  <input type="number" class="form-control-custom" placeholder="e.g. 100" min="1" required />
+                </div>
+              </div>
+              <div class="col-md-6">
+                <div class="form-group-custom">
+                  <label class="form-label-custom">Budget per Unit (AED)</label>
+                  <input type="text" class="form-control-custom" placeholder="e.g. AED 200–350" />
+                </div>
+              </div>
+              <div class="col-12">
+                <div class="form-group-custom">
+                  <label class="form-label-custom">Message</label>
+                  <textarea class="form-control-custom" rows="4" placeholder="Tell us about your gifting requirements, branding needs, delivery timeline or any special requests..." required></textarea>
+                </div>
+              </div>
+              <div class="col-12">
+                <button type="submit" class="btn-primary-custom">
+                  <i class="bi bi-send-fill"></i> Send Enquiry — We Reply in 2 Hours
+                </button>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer class="footer-main" role="contentinfo">
+  <div class="container">
+    <div class="row g-5">
+      <div class="col-lg-4 col-md-6">
+        <a href="index.html" class="footer-brand"><img src="assets/logo.svg" alt="" class="brand-mark" />Gift<span>Craft</span></a>
+        <p class="footer-desc">Elevating Corporate Relationships Through Thoughtful Gifting. UAE's most trusted corporate gifting partner since 2015.</p>
+        <div class="footer-social d-flex gap-2 mt-4">
+          <a href="#" aria-label="LinkedIn"><i class="bi bi-linkedin"></i></a>
+          <a href="#" aria-label="Twitter/X"><i class="bi bi-twitter-x"></i></a>
+          <a href="#" aria-label="Instagram"><i class="bi bi-instagram"></i></a>
+          <a href="#" aria-label="Facebook"><i class="bi bi-facebook"></i></a>
+        </div>
+      </div>
+      <div class="col-lg-2 col-md-3 col-sm-6">
+        <h4 class="footer-heading">Company</h4>
+        <a href="index.html" class="footer-link">Home</a>
+        <a href="home2.html" class="footer-link">Home2</a>
+        <a href="about.html" class="footer-link">About</a>
+        <a href="services.html" class="footer-link">Service</a>
+        <a href="blog.html" class="footer-link">Blog</a>
+        <a href="contact.html" class="footer-link">Contact</a>
+      </div>
+      <div class="col-lg-2 col-md-3 col-sm-6">
+        <h4 class="footer-heading">Services</h4>
+        <a href="service-details.html" class="footer-link">Corporate Gifting</a>
+        <a href="service-details.html" class="footer-link">Product Branding</a>
+        <a href="service-details.html" class="footer-link">Bulk Fulfillment</a>
+        <a href="service-details.html" class="footer-link">Premium Packaging</a>
+        <a href="service-details.html" class="footer-link">Global Delivery</a>
+      </div>
+      <div class="col-lg-4 col-md-6">
+        <h4 class="footer-heading">Newsletter</h4>
+        <p class="footer-desc mb-3">Get weekly gifting insights, trend reports and exclusive offers.</p>
+        <div class="newsletter-input-wrap">
+          <input type="email" class="newsletter-input" placeholder="Your work email" aria-label="Email for newsletter" />
+          <button class="newsletter-submit" type="button">Subscribe</button>
+        </div>
+        <p class="mt-3" style="font-size:0.8125rem;color:rgba(255,255,255,0.72);"><i class="bi bi-geo-alt-fill"></i> 1204 Business Bay, Dubai, UAE<br /><i class="bi bi-envelope-fill"></i> hello@giftcraft.ae | <i class="bi bi-telephone-fill"></i> +971 4 123 4567</p>
+      </div>
+    </div>
+    <div class="footer-bottom d-flex flex-wrap align-items-center justify-content-between gap-2">
+      <p style="color:rgba(255,255,255,0.72);font-size:0.8125rem;margin:0;">© 2026 GiftCraft. All rights reserved.</p>
+      <div class="d-flex gap-3">
+        <a href="#" style="color:rgba(255,255,255,0.72);font-size:0.8125rem;">Privacy Policy</a>
+        <a href="#" style="color:rgba(255,255,255,0.72);font-size:0.8125rem;">Terms of Service</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<button class="back-to-top" aria-label="Back to top"><i class="bi bi-arrow-up"></i></button>
+
+<!-- Bootstrap 5.3 JS -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+<!-- AOS -->
+<script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+<!-- Shared JS -->
+<script src="assets/js/main.js"></script>
+
+<script>
+  // AOS init
+  AOS.init({ duration: 700, once: true, offset: 60 });
+
+  // Enquiry form handler
+  function handleEnquirySubmit(e) {
+    e.preventDefault();
+    const btn = e.target.querySelector('.btn-primary-custom');
+    btn.innerHTML = '<i class="bi bi-check-circle-fill"></i> Enquiry Sent! We\'ll be in touch shortly.';
+    btn.style.background = 'linear-gradient(135deg, #16a34a, #15803d)';
+    btn.disabled = true;
+    setTimeout(() => {
+      btn.innerHTML = '<i class="bi bi-send-fill"></i> Send Enquiry — We Reply in 2 Hours';
+      btn.style.background = '';
+      btn.disabled = false;
+      e.target.reset();
+    }, 4000);
+  }
+
+  // Smooth scroll for category pills
+  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function(e) {
+      const target = document.querySelector(this.getAttribute('href'));
+      if (target) {
+        e.preventDefault();
+        target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+    });
+  });
+</script>
+</body>
+</html>
